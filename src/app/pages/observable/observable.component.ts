@@ -17,10 +17,16 @@ export class ObservableComponent implements OnInit, OnDestroy  {
       let count = 0;
       setInterval(()=>{
         count ++;
+        if(count === 2){
+          observer.complete();
+        }
+        if(count > 3){
+          observer.error('failed...')
+        }
         observer.next(count);
       }, 1000);
     });
-    this.subscription = obs.subscribe(data => console.log(data));
+    this.subscription = obs.subscribe(data => console.log(data), error=>console.log(error), ()=>console.log('completed...'));
   }
 
   ngOnDestroy(): void {
