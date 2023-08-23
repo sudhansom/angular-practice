@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, map, filter } from 'rxjs';
 
 
 
@@ -17,16 +17,16 @@ export class ObservableComponent implements OnInit, OnDestroy  {
       let count = 0;
       setInterval(()=>{
         count ++;
-        if(count === 2){
+        if(count === 4){
           observer.complete();
         }
-        if(count > 3){
+        if(count > 6){
           observer.error('failed...')
         }
         observer.next(count);
       }, 1000);
     });
-    this.subscription = obs.subscribe(data => console.log(data), error=>console.log(error), ()=>console.log('completed...'));
+    this.subscription = obs.pipe(filter(item => Number(item) > 1),map(item=> item + ' modified')).subscribe(data => console.log(data), error=>console.log(error), ()=>console.log('completed...'));
   }
 
   ngOnDestroy(): void {
