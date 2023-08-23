@@ -1,0 +1,25 @@
+<div class="array-methods">
+  <h1>Array Method Practice: </h1>
+  <p>original array:</p>
+  <ul class="original-array">
+    <li *ngFor="let item of originalArray">{{item}}</li>
+  </ul>
+  <p>updated array: Operations:-  {{message}}</p>
+  <ul>
+    <li *ngFor="let item of myArray" [class]="originalArray.includes(item)?'':'new-item'">{{item}}</li>
+  </ul>
+  <div class="methods">
+    <h2>Methods: </h2>
+    <ol>
+      <li (click)="pushItem()">push <span>-- adds an item at the end of the array</span></li>
+      <li (click)="popItem()">pop <span>-- removes an item from the end of the array</span></li>
+      <li (click)="shiftItem()">shift <span>-- adds an item at the start of the array</span></li>
+      <li (click)="unShiftItem()">unshift <span>-- removes an item from the start of the array</span></li>
+      <li (click)="slice()">slice(1,4) <span>-- return the value(does not change the array) item from 1 to 4(exclusive) </span></li>
+      <li (click)="splice()">splice(1,4,'f') <span>-- replace 4 items from position 1 with 'f' </span></li>
+      <li (click)="map()">map<span>-- modify each item of the array </span> </li>
+      <li (click)="filter()">filter<span>-- filter items on certain condition </span> </li>
+      <li (click)="reduce()">reduce<span>-- reduce to compute something </span> </li>
+    </ol>
+  </div>
+</div>
