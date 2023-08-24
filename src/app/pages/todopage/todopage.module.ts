@@ -3,10 +3,8 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { TodopageComponent } from "./todopage.component";
-import { EachTaskComponent } from "src/app/components/each-task/each-task.component";
 import { HeaderModule } from "src/app/components/header/header.module";
-import { TasksComponent } from "src/app/components/tasks/tasks.component";
-
+import { TasksModule } from "src/app/components/tasks/tasks.module";
 
 const appRoutes: Routes = [
   {
@@ -18,13 +16,12 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     TodopageComponent,
-    EachTaskComponent,
-    TasksComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),
     HeaderModule,
+    TasksModule,
   ],
   exports:[],
   providers: [],
