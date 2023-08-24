@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-my-button',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-button.component.scss']
 })
 export class MyButtonComponent {
-
+  @Input() backgroundColor = 'green';
+  @Input() buttonText = 'Show Form';
 }
