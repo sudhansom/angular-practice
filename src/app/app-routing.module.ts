@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'about', loadChildren: ()=>import('./pages/about/about.module').then((mod)=>mod.AboutModule)},
   { path: 'array-methods', loadChildren: ()=>import('./pages/array-methods/array-methods.module').then((mod)=>mod.ArrayMethodsModule)},
   { path: 'observable', loadChildren: ()=>import('./pages/observable/observable.module').then((mod)=>mod.ObservableModule)},
+  { path: 'todo', loadChildren: () => import('./pages/todopage/todopage.module').then((mod)=>mod.TodopageModule)},
 ];
 
 @NgModule({
