@@ -1,0 +1,23 @@
+:host {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    border: 1px solid green;
+    border-radius: 9px;
+    padding: 12px;
+    margin-block: 12px 24px;
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      input {
+        padding: 5px;
+        border-radius: 7px;
+      }
+    }
+    label:last-of-type{
+      flex-direction: row;
+    }
+  }
+}
