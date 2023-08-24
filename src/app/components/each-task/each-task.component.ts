@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { ITodos } from 'src/types';
 
 @Component({
   selector: 'app-each-task',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./each-task.component.scss']
 })
 export class EachTaskComponent {
-
+  @Input() task?: ITodos;
 }

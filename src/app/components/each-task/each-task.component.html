@@ -1,1 +1,7 @@
-<p>each-task works!</p>
+<div class="container">
+  <p>{{task?.id}}</p>
+  <p>{{task?.todo}}</p>
+  <p>{{task?.date?.toISOString()?.slice(0,10)}}</p>
+  <p>{{task?.complete}}</p>
+  <p class="delete">X</p>
+</div>
