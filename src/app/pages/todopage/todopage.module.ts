@@ -4,7 +4,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { TodopageComponent } from "./todopage.component";
 import { EachTaskComponent } from "src/app/components/each-task/each-task.component";
-import { HeaderComponent } from "src/app/components/header/header.component";
+import { HeaderModule } from "src/app/components/header/header.module";
 import { TasksComponent } from "src/app/components/tasks/tasks.component";
 
 
@@ -19,12 +19,12 @@ const appRoutes: Routes = [
   declarations: [
     TodopageComponent,
     EachTaskComponent,
-    HeaderComponent,
-    TasksComponent
+    TasksComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),
+    HeaderModule,
   ],
   exports:[],
   providers: [],
