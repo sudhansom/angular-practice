@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { UiService } from 'src/app/services/ui.service';
+
 import { ITodos } from 'src/types';
 
 @Component({
@@ -9,6 +11,10 @@ import { ITodos } from 'src/types';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodopageComponent  {
+  constructor(private _uiService: UiService){}
+
+  addShowButton = this._uiService.addShowButton;
+
   todos: ITodos[] = [
     {
       id: 1,

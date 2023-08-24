@@ -1,5 +1,5 @@
 <div class="container">
   <app-header></app-header>
-  <app-todo-input></app-todo-input>
+  <app-todo-input *ngIf="!(addShowButton | async)"></app-todo-input>
   <app-tasks [todos]="todos"></app-tasks>
 </div>
