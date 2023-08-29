@@ -1,5 +1,5 @@
-{
- "courses":[
+{"courses":{
+ "payload":[
   {
     "name":"course1",
     "category":"beginner",
@@ -27,4 +27,5 @@
   }
  ]
 
+}
 }

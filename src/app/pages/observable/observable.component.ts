@@ -16,7 +16,10 @@ export class ObservableComponent implements OnInit, OnDestroy  {
 
   ngOnInit(): void {
     const obs$ = createObservables();
-    this.subscription = obs$.pipe(filter(item => Number(item) > 1),map(item=> item + ' modified')).subscribe(data => console.log(data), error=>console.log(error), ()=>console.log('completed...'));
+    const courses$ = obs$.pipe(map(res => res['payload']));
+
+    courses$.subscribe(console.log)
+
   }
 
   ngOnDestroy(): void {

@@ -2,16 +2,15 @@ import { Observable } from "rxjs";
 
 export function createObservables(){
     return new Observable(observer => {
-        let count = 0;
-        setInterval(()=>{
-          count ++;
-          if(count === 4){
+        fetch('http://localhost:9001/courses')
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            observer.next(data);
             observer.complete();
-          }
-          if(count > 6){
-            observer.error('failed...')
-          }
-          observer.next(count);
-        }, 1000);
+
+        })
+        .catch(err => observer.error(err))
       });
   }
