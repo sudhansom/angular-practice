@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription, map, filter } from 'rxjs';
+import { Subscription, map, filter } from 'rxjs';
+
+import { createObservables } from 'src/app/util/createObservable';
 
 
 
@@ -20,20 +22,4 @@ export class ObservableComponent implements OnInit, OnDestroy  {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-}
-
-function createObservables(){
-  return new Observable(observer => {
-      let count = 0;
-      setInterval(()=>{
-        count ++;
-        if(count === 4){
-          observer.complete();
-        }
-        if(count > 6){
-          observer.error('failed...')
-        }
-        observer.next(count);
-      }, 1000);
-    });
 }
