@@ -1,0 +1,30 @@
+{
+ "courses":[
+  {
+    "name":"course1",
+    "category":"beginner",
+    "price":30
+  },
+  {
+    "name":"course2",
+    "category":"beginner",
+    "price":30
+  },
+  {
+    "name":"course3",
+    "category":"advance",
+    "price":300
+  },
+  {
+    "name":"course4",
+    "category":"beginner",
+    "price":30
+  },
+  {
+    "name":"course5",
+    "category":"advance",
+    "price":300
+  }
+ ]
+
+}
