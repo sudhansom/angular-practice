@@ -13,7 +13,17 @@ export class ObservableComponent implements OnInit, OnDestroy  {
   subscription!: Subscription;
 
   ngOnInit(): void {
-    const obs$ = new Observable(observer => {
+    const obs$ = createObservables();
+    this.subscription = obs$.pipe(filter(item => Number(item) > 1),map(item=> item + ' modified')).subscribe(data => console.log(data), error=>console.log(error), ()=>console.log('completed...'));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+}
+
+function createObservables(){
+  return new Observable(observer => {
       let count = 0;
       setInterval(()=>{
         count ++;
@@ -26,10 +36,4 @@ export class ObservableComponent implements OnInit, OnDestroy  {
         observer.next(count);
       }, 1000);
     });
-    this.subscription = obs$.pipe(filter(item => Number(item) > 1),map(item=> item + ' modified')).subscribe(data => console.log(data), error=>console.log(error), ()=>console.log('completed...'));
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
 }
