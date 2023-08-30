@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { of, from, map, delay, BehaviorSubject, mergeMap, concatMap, switchMap, exhaustMap } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { of, from, map, delay, BehaviorSubject, mergeMap, concatMap, switchMap, exhaustMap, fromEvent, debounceTime, distinctUntilChanged } from 'rxjs';
+import { createObservables, createObservablesCountry } from 'src/app/util/createObservable';
 
 @Component({
   selector: 'app-all-maps-observable',
@@ -7,7 +8,9 @@ import { of, from, map, delay, BehaviorSubject, mergeMap, concatMap, switchMap, 
   styleUrls: ['./all-maps-observable.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AllMapsObservableComponent implements OnInit {
+export class AllMapsObservableComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('input') input : ElementRef;
 
   mergeMapData$ = new BehaviorSubject<string[]>([]);
   concatMapData$ = new BehaviorSubject<string[]>([]);
@@ -48,6 +51,24 @@ export class AllMapsObservableComponent implements OnInit {
 
   getData(data){
     return of(data + 'Video Uploaded...').pipe(delay(1000));
+  }
+
+  ngAfterViewInit(): void {
+     const searchCountry = fromEvent<any>(this.input.nativeElement, 'keyup')
+     .pipe(
+      map(event => event.target.value),
+      debounceTime(200),
+      distinctUntilChanged(),
+      switchMap(search =>this.loadCountryByName(search))
+     )
+
+     searchCountry.subscribe(console.log);
+    //  const aaa = this.loadCountryByName('Nepal');
+    //  aaa.subscribe(console.log);
+  }
+
+  loadCountryByName(name=''){
+    return createObservablesCountry(`https://restcountries.com/v3.1/name/${name}`);
   }
 
 }
