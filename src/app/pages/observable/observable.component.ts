@@ -13,7 +13,7 @@ import { Course } from 'src/app/util/type';
   styleUrls: ['./observable.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ObservableComponent implements OnInit, OnDestroy  {
+export class ObservableComponent implements OnInit  {
   subscription!: Subscription;
   beginner$: Observable<Course[]>;
   advanced$: Observable<Course[]>;
@@ -34,9 +34,5 @@ export class ObservableComponent implements OnInit, OnDestroy  {
                               map(courses => courses
                                 .filter(course => course.category==='advance')));
 
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

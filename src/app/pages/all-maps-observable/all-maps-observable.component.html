@@ -13,5 +13,11 @@
             <h2>Switch Map</h2>
             <p *ngFor="let item of switchMapData$ | async">{{ item }}</p>
         </div>
+        <div class="exhaust-map">
+            <h2>Exhaust Map</h2>
+            <p *ngFor="let item of exhaustMapData$ | async">{{ item }}</p>
+        </div>
     </div>
+    <a routerLink="/">Home</a>
 </div>
+

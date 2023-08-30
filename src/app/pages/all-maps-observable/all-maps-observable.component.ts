@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { of, from, map, delay, BehaviorSubject, mergeMap, concatMap, switchMap } from 'rxjs';
+import { of, from, map, delay, BehaviorSubject, mergeMap, concatMap, switchMap, exhaustMap } from 'rxjs';
 
 @Component({
   selector: 'app-all-maps-observable',
@@ -12,6 +12,7 @@ export class AllMapsObservableComponent implements OnInit {
   mergeMapData$ = new BehaviorSubject<string[]>([]);
   concatMapData$ = new BehaviorSubject<string[]>([]);
   switchMapData$ = new BehaviorSubject<string[]>([]);
+  exhaustMapData$ = new BehaviorSubject<string[]>([]);
 
   ngOnInit(){
     const source$ = from(['Series', 'Movies', 'Sports']);
@@ -35,6 +36,13 @@ export class AllMapsObservableComponent implements OnInit {
     )
     .subscribe(data =>
       this.switchMapData$.next([...this.switchMapData$.getValue(), data])
+    )
+
+    source$.pipe(
+      exhaustMap(data => this.getData(data)),
+    )
+    .subscribe(data =>
+      this.exhaustMapData$.next([...this.exhaustMapData$.getValue(), data])
     )
   }
 
