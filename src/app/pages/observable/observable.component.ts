@@ -13,12 +13,19 @@ import { createObservables } from 'src/app/util/createObservable';
 })
 export class ObservableComponent implements OnInit, OnDestroy  {
   subscription!: Subscription;
+  beginner = [];
+  advanced = [];
 
   ngOnInit(): void {
     const obs$ = createObservables();
-    const courses$ = obs$.pipe(map(res => res['payload']));
+    const courses$ = obs$.pipe(map(res =>res['payload']));
 
-    courses$.subscribe(console.log)
+    courses$.subscribe(data => console.log('obs: ', data));
+
+    courses$.subscribe(data => {
+      this.advanced = data.filter(item => item.category==='advance');
+      this.beginner = data.filter(item => item.category==='beginner');
+    })
 
   }
 
