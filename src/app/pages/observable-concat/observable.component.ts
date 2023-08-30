@@ -12,7 +12,7 @@ import { Subscription, of, concat } from 'rxjs';
   styleUrls: ['./observable.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ObservableComponent implements OnInit, OnDestroy  {
+export class ObservableComponent implements OnInit  {
   subscription!: Subscription;
   result$: Observable<number>;
 
@@ -23,9 +23,5 @@ export class ObservableComponent implements OnInit, OnDestroy  {
 
    this.result$ = concat(source1$, source2$, source3$);
    this.result$.subscribe(console.log);
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }
