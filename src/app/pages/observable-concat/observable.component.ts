@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subscription, of, concat } from 'rxjs';
 
+import { FormControl, FormGroup } from '@angular/forms';
+
 
 
 
@@ -15,6 +17,8 @@ import { Subscription, of, concat } from 'rxjs';
 export class ObservableComponent implements OnInit  {
   subscription!: Subscription;
   result$: Observable<number>;
+
+  form: FormGroup;
 
   ngOnInit(): void {
    const source1$ = of(1, 2, 3);
