@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Subscription, map, filter } from 'rxjs';
 
 import { createObservables } from 'src/app/util/createObservable';
+import { Course } from 'src/app/util/type';
 
 
 
@@ -13,18 +15,23 @@ import { createObservables } from 'src/app/util/createObservable';
 })
 export class ObservableComponent implements OnInit, OnDestroy  {
   subscription!: Subscription;
-  beginner = [];
-  advanced = [];
+  beginner$: Observable<Course[]>;
+  advanced$: Observable<Course[]>;
 
   ngOnInit(): void {
-    const obs$ = createObservables('http://localhost:9001/courses');
-    const courses$ = obs$.pipe(map(res =>res['payload']));
+    const http$: Observable<Course[]> = createObservables('http://localhost:9001/courses');
+    //const courses$ = http$.pipe(map(res =>Object.values(res['payload'])));
 
+    http$.subscribe(data => console.log(data))
 
-    courses$.subscribe(data => {
-      this.advanced = data.filter(item => item.category==='advance');
-      this.beginner = data.filter(item => item.category==='beginner');
-    })
+    //console.log(http$);
+
+   this.beginner$ = http$.pipe(
+                              map(courses => courses
+                                .filter(course => course.category==='beginner')));
+   this.advanced$ = http$.pipe(
+                              map(courses => courses
+                                .filter(course => course.category==='advance')));
 
   }
 

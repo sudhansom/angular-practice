@@ -1,10 +1,10 @@
 <h1>Observable</h1>
 <a routerLink="">home</a>
 <div>Beginner
-    {{beginner | json}}
+    {{beginner$ | async | json}}
 </div>
 <hr>
 <hr>
 <div>Adbanced
-    {{advanced | json}}
+    {{advanced$ | async | json}}
 </div>
