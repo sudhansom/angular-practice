@@ -68,7 +68,10 @@ export class AllMapsObservableComponent implements OnInit, AfterViewInit {
   }
 
   loadCountryByName(name=''){
-    return createObservablesCountry(`https://restcountries.com/v3.1/name/${name}`);
+    return createObservablesCountry(`https://restcountries.com/v3.1/name/${name}`)
+      .pipe(
+        map(country => country[0].name.common)
+      )
   }
 
 }
