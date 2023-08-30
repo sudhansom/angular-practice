@@ -22,9 +22,6 @@ export class ObservableComponent implements OnInit, OnDestroy  {
     const http$: Observable<Course[]> = createObservables('http://localhost:9001/courses');
     //const courses$ = http$.pipe(map(res =>Object.values(res['payload'])));
 
-    http$.subscribe(data => console.log(data))
-
-    //console.log(http$);
 
    this.beginner$ = http$.pipe(
                               map(courses => courses
