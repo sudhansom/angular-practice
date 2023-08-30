@@ -1,8 +1,8 @@
 import { Observable } from "rxjs";
 
-export function createObservables(){
+export function createObservables(url: string){
     return new Observable(observer => {
-        fetch('http://localhost:9001/courses')
+        fetch(url)
         .then(response => {
             return response.json()
         })

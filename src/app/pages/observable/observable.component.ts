@@ -17,10 +17,9 @@ export class ObservableComponent implements OnInit, OnDestroy  {
   advanced = [];
 
   ngOnInit(): void {
-    const obs$ = createObservables();
+    const obs$ = createObservables('http://localhost:9001/courses');
     const courses$ = obs$.pipe(map(res =>res['payload']));
 
-    courses$.subscribe(data => console.log('obs: ', data));
 
     courses$.subscribe(data => {
       this.advanced = data.filter(item => item.category==='advance');
