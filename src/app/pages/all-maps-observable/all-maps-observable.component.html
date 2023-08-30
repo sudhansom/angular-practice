@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>All Maps</h1>
+    <div class="all-maps">
+        <div class="merge-map">
+            <h2>Merge Map</h2>
+            <p *ngFor="let item of mergeMapData$ | async">{{ item }}</p>
+        </div>
+        <div class="concat-map">
+            <h2>Concat Map</h2>
+            <p *ngFor="let item of concatMapData$ | async">{{ item }}</p>
+        </div>
+        <div class="switch-map">
+            <h2>Switch Map</h2>
+            <p *ngFor="let item of switchMapData$ | async">{{ item }}</p>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'array-methods', loadChildren: ()=>import('./pages/array-methods/array-methods.module').then((mod)=>mod.ArrayMethodsModule)},
   { path: 'observable', loadChildren: ()=>import('./pages/observable/observable.module').then((mod)=>mod.ObservableModule)},
   { path: 'observable-concat', loadChildren: ()=>import('./pages/observable-concat/observable.module').then((mod)=>mod.ObservableModule)},
+  { path: 'all-maps', loadChildren: ()=>import('./pages/all-maps-observable/all-maps-observable.module').then((mod)=>mod.AllMapsObservableModule)},
   { path: 'todo', loadChildren: () => import('./pages/todopage/todopage.module').then((mod)=>mod.TodopageModule)},
 ];
 
