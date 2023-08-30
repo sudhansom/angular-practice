@@ -17,9 +17,9 @@ export function createObservables(url: string) : Observable<Course[]>{
       });
   }
 
-  export function createObservablesCountry(url: string) : Observable<any>{
+  export function createObservablesCountry(name: string) : Observable<any>{
     return new Observable(observer => {
-        fetch(url)
+        fetch(`https://restcountries.com/v3.1/name/${name}`)
         .then(response => {
             return response.json()
         })

@@ -57,20 +57,20 @@ export class AllMapsObservableComponent implements OnInit, AfterViewInit {
      const searchCountry = fromEvent<any>(this.input.nativeElement, 'keyup')
      .pipe(
       map(event => event.target.value),
-      debounceTime(200),
+      debounceTime(500),
       distinctUntilChanged(),
       switchMap(search =>this.loadCountryByName(search))
      )
 
-     searchCountry.subscribe(console.log);
+     searchCountry.subscribe((data)=>console.log('your data: ', data), err=> console.log('Error occurred....',err), ()=>console.log('completed...'));
     //  const aaa = this.loadCountryByName('Nepal');
     //  aaa.subscribe(console.log);
   }
 
   loadCountryByName(name=''){
-    return createObservablesCountry(`https://restcountries.com/v3.1/name/${name}`)
+      return createObservablesCountry(name)
       .pipe(
-        map(country => country[0].name.common)
+        map(country => country[0]?.name?.common)
       )
   }
 
