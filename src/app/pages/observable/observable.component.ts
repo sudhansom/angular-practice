@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Subscription, map, filter } from 'rxjs';
+import { Observable, shareReplay } from 'rxjs';
+import { Subscription, map, filter, tap } from 'rxjs';
 
 import { createObservables } from 'src/app/util/createObservable';
 import { Course } from 'src/app/util/type';
@@ -20,13 +20,17 @@ export class ObservableComponent implements OnInit, OnDestroy  {
 
   ngOnInit(): void {
     const http$: Observable<Course[]> = createObservables('http://localhost:9001/courses');
-    //const courses$ = http$.pipe(map(res =>Object.values(res['payload'])));
+    const courses$ = http$.pipe(
+      map(res => res),
+      tap((val)=>console.log('take the value here... ', val)),
+      shareReplay()
+      );
 
 
-   this.beginner$ = http$.pipe(
+   this.beginner$ = courses$.pipe(
                               map(courses => courses
                                 .filter(course => course.category==='beginner')));
-   this.advanced$ = http$.pipe(
+   this.advanced$ = courses$.pipe(
                               map(courses => courses
                                 .filter(course => course.category==='advance')));
 
