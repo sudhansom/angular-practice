@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { of, from, map, delay, BehaviorSubject, mergeMap, concatMap, switchMap, exhaustMap, fromEvent, debounceTime, distinctUntilChanged } from 'rxjs';
+import { of, from, map, delay, BehaviorSubject, mergeMap, concatMap, switchMap, exhaustMap, fromEvent, debounceTime, distinctUntilChanged, catchError } from 'rxjs';
 import { createObservables, createObservablesCountry } from 'src/app/util/createObservable';
 
 @Component({
@@ -59,7 +59,8 @@ export class AllMapsObservableComponent implements OnInit, AfterViewInit {
       map(event => event.target.value),
       debounceTime(500),
       distinctUntilChanged(),
-      switchMap(search =>this.loadCountryByName(search))
+      switchMap(search =>this.loadCountryByName(search)),
+      catchError((err)=>of([]))
      )
 
      searchCountry.subscribe((data)=>console.log('your data: ', data), err=> console.log('Error occurred....',err), ()=>console.log('completed...'));
