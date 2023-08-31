@@ -1,4 +1,5 @@
 <div class="container" *ngIf="(allCountries$ | async)?.length">
+    <a routerLink="/">Back to Home</a>
     <div class="each-country" *ngFor="let country of allCountries$ | async">
         <p>{{country?.name?.common}}</p>
         <p>{{country?.region}}</p>
