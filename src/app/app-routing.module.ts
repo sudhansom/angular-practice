@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'observable-concat', loadChildren: ()=>import('./pages/observable-concat/observable.module').then((mod)=>mod.ObservableModule)},
   { path: 'all-maps', loadChildren: ()=>import('./pages/all-maps-observable/all-maps-observable.module').then((mod)=>mod.AllMapsObservableModule)},
   { path: 'todo', loadChildren: () => import('./pages/todopage/todopage.module').then((mod)=>mod.TodopageModule)},
+  { path: 'countries', loadChildren: () => import('.//pages/rest-countries/about.module').then((mod)=>mod.AboutModule)},
 ];
 
 @NgModule({
