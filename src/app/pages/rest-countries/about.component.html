@@ -1,1 +1,8 @@
-<h1>About</h1>
+<div class="container" *ngIf="(allCountries$ | async)?.length">
+    <div class="each-country" *ngFor="let country of allCountries$ | async">
+        <p>{{country?.name?.common}}</p>
+        <p>{{country?.region}}</p>
+        <p>{{country?.area}}</p>
+        <p>{{country?.population}}</p>
+    </div>
+</div>
