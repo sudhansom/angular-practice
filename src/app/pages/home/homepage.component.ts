@@ -42,18 +42,28 @@ export class HomepageComponent implements OnInit  {
       value: " 2023-08-31"
     },
   ]
-  newArray = [{}, {}]
+  newArray = []
   ngOnInit(): void {
+    //debugger;
     this.input.forEach(
       item => {
         const { role, name, value } = item;
-         //this.newArray.push({ ...this.newArray, role, [name]: value });
-
-          if(!(name in this.newArray[0])){
-            this.newArray[1] = { ...this.newArray[1], role, [name]: value };
-          }else{
-            this.newArray[0] = { ...this.newArray[0], role, [name]: value };
-          }
+        let inserted = false;
+         if(!this.newArray.length){
+          this.newArray = [ {role, [name]: value} ];
+         }else{
+           this.newArray.forEach((item, i) => {
+            if(!item[name] && !inserted){
+              this.newArray[i] = {...this.newArray[i], role, [name]: value}
+              inserted = true;
+              return
+            }
+           })
+           if(!inserted){
+            this.newArray = [...this.newArray, {role, [name]: value} ];
+            inserted = true;
+           }
+         }
       })
       console.log(this.newArray);
 
