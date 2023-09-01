@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'all-maps', loadChildren: ()=>import('./pages/all-maps-observable/all-maps-observable.module').then((mod)=>mod.AllMapsObservableModule)},
   { path: 'todo', loadChildren: () => import('./pages/todopage/todopage.module').then((mod)=>mod.TodopageModule)},
   { path: 'countries', loadChildren: () => import('.//pages/rest-countries/about.module').then((mod)=>mod.AboutModule)},
+  { path: 'cold-hot', loadChildren: () => import('.//pages/cold-hot/about.module').then((mod)=>mod.AboutModule)},
 ];
 
 @NgModule({
