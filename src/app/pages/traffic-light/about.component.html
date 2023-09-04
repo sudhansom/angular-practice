@@ -1,1 +1,9 @@
-<h1>About</h1>
+<div class="container">
+    <div class="head">
+        <div class="light" [style.--traffic-color]="lightColorRed$ | async"></div>
+        <div class="light"[style.--traffic-color]="lightColorYellow$ | async"></div>
+        <div class="light"[style.--traffic-color]="lightColorGreen$ | async"></div>
+    </div>
+    <div class="pole"></div>
+    <div class="base"></div>
+</div>
