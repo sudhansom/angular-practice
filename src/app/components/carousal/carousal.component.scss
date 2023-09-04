@@ -1,0 +1,21 @@
+:host {
+    display: block;
+    position: relative;
+    padding: 24px;
+    .prev , .next {
+        position: absolute;
+        scale: 6;
+        color: red;
+        top: 200px;
+        cursor: pointer;
+    }
+
+    .prev {
+        left: 24px;
+    }
+    .next {
+        right: 24px;
+    }
+
+
+}
