@@ -2,8 +2,7 @@
     display: block;
     position: relative;
     padding: 24px;
-    height: 100%;
-    --carousal-height: 400px;
+    height: var(--carousal-height);
     .prev , .next {
         position: absolute;
         scale: 6;

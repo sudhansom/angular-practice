@@ -10,8 +10,10 @@ import { BehaviorSubject, combineLatest, map } from 'rxjs';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CarousalComponent  {
-  currentIndex$ = new BehaviorSubject(-1);
+  currentIndex$ = new BehaviorSubject(0);
   noOfSlides$ = new BehaviorSubject(6);
+  showPrev$ = new BehaviorSubject(false);
+  showNext$ = new BehaviorSubject(true);
 
   slideToIndex(i: number){
     this.currentIndex$.next(i);
@@ -23,4 +25,21 @@ export class CarousalComponent  {
       })
      }
   ))
+
+
+  handleNext(){
+    if(this.currentIndex$.getValue() >= 0 && this.currentIndex$.getValue() < this.noOfSlides$.getValue()-1){
+      this.currentIndex$.next(this.currentIndex$.getValue() + 1);
+    }
+    this.showPrev$.next(this.currentIndex$.getValue()>=1?true:false);
+    this.showNext$.next(this.currentIndex$.getValue()<(this.noOfSlides$.getValue()-1)?true:false);
+  }
+
+  handlePrev(){
+    if(this.currentIndex$.getValue() > 0 && this.currentIndex$.getValue() <= this.noOfSlides$.getValue()){
+      this.currentIndex$.next(this.currentIndex$.getValue() - 1);
+    }
+    this.showPrev$.next(this.currentIndex$.getValue()>=1?true:false);
+    this.showNext$.next(this.currentIndex$.getValue()<(this.noOfSlides$.getValue()-1)?true:false);
+  }
 }
