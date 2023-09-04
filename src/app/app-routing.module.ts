@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'todo', loadChildren: () => import('./pages/todopage/todopage.module').then((mod)=>mod.TodopageModule)},
   { path: 'countries', loadChildren: () => import('.//pages/rest-countries/about.module').then((mod)=>mod.AboutModule)},
   { path: 'cold-hot', loadChildren: () => import('.//pages/cold-hot/about.module').then((mod)=>mod.AboutModule)},
+  { path: 'traffic-light', loadChildren: ()=>import('./pages/traffic-light/about.module').then((mod)=>mod.AboutModule)},
 ];
 
 @NgModule({
