@@ -3,3 +3,6 @@
 </div>
 <div class="prev">&#8249;</div>
 <div class="next">&#8250;</div>
+<div class="bullets" *ngIf="bullets$ | async as bullets">
+    <div class="bullet" [class.selected]="bullet" *ngFor="let bullet of bullets; let i = index;" (click)="slideToIndex(i)"></div>
+</div>
