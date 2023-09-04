@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 import { HomepageComponent } from "./homepage.component";
+import { CarousalModule } from "src/app/components/carousal/carousal.module";
 
 const appRoutes: Routes = [
   {
@@ -14,11 +15,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     HomepageComponent,
-
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),
+    CarousalModule,
   ],
   exports:[],
   providers: [],
