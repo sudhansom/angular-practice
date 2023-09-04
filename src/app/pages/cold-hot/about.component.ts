@@ -124,6 +124,15 @@ export class AboutComponent implements OnInit  {
         ...override,
       }
     })
+    .map((teaser, index)=>{
+      if(index % 2){
+        return {
+          ...teaser,
+          layout: 'some layout'
+        }
+      }
+      return teaser;
+    })
     }
     console.log(teaserstck1);
   }
