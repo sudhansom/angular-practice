@@ -47,15 +47,11 @@ export class CarousalComponent  {
     if(this.currentIndex$.getValue() >= 0 && this.currentIndex$.getValue() < this.noOfSlides$.getValue()-1){
       this.currentIndex$.next(this.currentIndex$.getValue() + 1);
     }
-    // this.showPrev$.next(this.currentIndex$.getValue()>=1?true:false);
-    // this.showNext$.next(this.currentIndex$.getValue()<(this.noOfSlides$.getValue()-1)?true:false);
   }
 
   handlePrev(){
     if(this.currentIndex$.getValue() > 0 && this.currentIndex$.getValue() <= this.noOfSlides$.getValue()){
       this.currentIndex$.next(this.currentIndex$.getValue() - 1);
     }
-    // this.showPrev$.next(this.currentIndex$.getValue()>=1?true:false);
-    // this.showNext$.next(this.currentIndex$.getValue()<(this.noOfSlides$.getValue()-1)?true:false);
   }
 }
