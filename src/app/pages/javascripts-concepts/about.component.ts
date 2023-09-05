@@ -27,6 +27,10 @@ export class AboutComponent implements OnInit  {
   ngOnInit(): void {
       this.showFullName.call(this.person, 42, 169);
       this.showFullName.apply(this.person2, [40, 167]);
+
+      let anotherFunction = this.showFullName.bind(this.person, 22, 179);
+
+      anotherFunction();
   }
 
 }
