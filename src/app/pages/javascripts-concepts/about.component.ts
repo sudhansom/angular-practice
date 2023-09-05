@@ -18,8 +18,14 @@ export class AboutComponent implements OnInit  {
     }
   }
 
+  person2 = {
+    name: 'resham',
+    address: 'ktm'
+  }
+
   ngOnInit(): void {
       this.person.showFullName();
+      this.person.showFullName.call(this.person2);
   }
 
 }
