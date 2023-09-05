@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'countries', loadChildren: () => import('.//pages/rest-countries/about.module').then((mod)=>mod.AboutModule)},
   { path: 'cold-hot', loadChildren: () => import('.//pages/cold-hot/about.module').then((mod)=>mod.AboutModule)},
   { path: 'traffic-light', loadChildren: ()=>import('./pages/traffic-light/about.module').then((mod)=>mod.AboutModule)},
+  { path: 'js-concepts', loadChildren: ()=>import('./pages/javascripts-concepts/about.module').then((mod)=>mod.AboutModule)},
 ];
 
 @NgModule({
