@@ -13,9 +13,6 @@ export class AboutComponent implements OnInit  {
   person = {
     name: 'sudhan',
     address: 'Lalim',
-    showFullName: function(){
-      console.log(`${this.name} lives in ${this.address}`)
-    }
   }
 
   person2 = {
@@ -23,9 +20,13 @@ export class AboutComponent implements OnInit  {
     address: 'ktm'
   }
 
+  showFullName = function(){
+    console.log(`${this.name} lives in ${this.address}`)
+  }
+
   ngOnInit(): void {
-      this.person.showFullName();
-      this.person.showFullName.call(this.person2);
+      this.showFullName.call(this.person);
+      this.showFullName.call(this.person2);
   }
 
 }
