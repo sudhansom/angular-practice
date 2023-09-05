@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 
@@ -8,6 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./about.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent  {
+export class AboutComponent implements OnInit  {
+
+  person = {
+    name: 'sudhan',
+    address: 'Lalim',
+    showFullName: function(){
+      console.log(`${this.name} lives in ${this.address}`)
+    }
+  }
+
+  ngOnInit(): void {
+      this.person.showFullName();
+  }
 
 }
