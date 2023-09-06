@@ -33,6 +33,8 @@ export class AboutComponent implements OnInit  {
       anotherFunction();
 
       console.log(this.anotherOne(8));
+
+      console.log(this.sum1(1)(2)(7)());
   }
 
   multiply = function(x){
@@ -42,5 +44,13 @@ export class AboutComponent implements OnInit  {
   }
 
   anotherOne = this.multiply(9);
+
+  sum = a => {
+    return b => {
+      return b? this.sum(a + b) : a;
+    }
+  }
+
+  sum1 = a => b => {return b?this.sum(a+b): a};
 
 }
