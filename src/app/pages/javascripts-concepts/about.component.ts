@@ -31,6 +31,16 @@ export class AboutComponent implements OnInit  {
       let anotherFunction = this.showFullName.bind(this.person, 22, 179);
 
       anotherFunction();
+
+      console.log(this.anotherOne(8));
   }
+
+  multiply = function(x){
+    return function(y){
+      return x * y;
+    }
+  }
+
+  anotherOne = this.multiply(9);
 
 }
