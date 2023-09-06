@@ -1,0 +1,16 @@
+:host {
+    .grand {
+        background-color: green;
+        padding: 22px;
+        .parent {
+            background-color: purple;
+            padding: 22px;
+            .child {
+                background-color: red;
+                height: 100px;
+                width: 200px;
+                margin: auto;
+            }
+        }
+    }
+}

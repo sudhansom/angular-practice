@@ -1,6 +1,12 @@
 <h1>Bubbling and  Capturing Practice...</h1>
-<div class="grand">
-    <div class="parent">
-        <div class="child"></div>
+<!-- <div class="grand"  (click)="grandParent()">
+    <div class="parent" (click)="parent()">
+        <div class="child" (click)="child()"></div>
+    </div>
+</div> -->
+
+<div class="grand" #grand>
+    <div class="parent" #parent>
+        <div class="child" #child1></div>
     </div>
 </div>
