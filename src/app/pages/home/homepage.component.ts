@@ -69,11 +69,11 @@ export class HomepageComponent implements OnInit  {
 
     }
   @HostListener('click') onClick(){
-    this.betterExpensive(this.expensiveCall, 1000);
+    this.betterExpensive();
     //this.expensiveCall();
   }
 
-  betterExpensive = (expensive1: ()=>void, limit: number)=>{
+  throttledFunction = (expensive1: ()=>void, limit: number)=>{
     let flag = true;
     return ()=>{
       if(flag){
@@ -86,6 +86,7 @@ export class HomepageComponent implements OnInit  {
     }
 
   }
+  betterExpensive = this.throttledFunction(this.expensiveCall, 1000);
   expensiveCall(){
     console.log('expensive call...');
   }
