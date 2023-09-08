@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 
@@ -68,5 +68,26 @@ export class HomepageComponent implements OnInit  {
       console.log(this.newArray);
 
     }
+  @HostListener('click') onClick(){
+    this.betterExpensive(this.expensiveCall, 1000);
+    //this.expensiveCall();
+  }
+
+  betterExpensive = (expensive1: ()=>void, limit: number)=>{
+    let flag = true;
+    return ()=>{
+      if(flag){
+        expensive1();
+        flag = false;
+      }
+      setTimeout(()=>{
+        flag = true;
+      }, limit)
+    }
+
+  }
+  expensiveCall(){
+    console.log('expensive call...');
+  }
 
   }
