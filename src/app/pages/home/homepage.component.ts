@@ -91,7 +91,7 @@ export class HomepageComponent implements OnInit  {
     return ()=>{
       clearTimeout(timerId);
       timerId = setTimeout(()=>{
-        expensive2();
+        expensive2(); // expensive2.apply(this, arguments);
       }, delay);
     }
   }
