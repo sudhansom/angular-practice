@@ -86,7 +86,17 @@ export class HomepageComponent implements OnInit  {
     }
 
   }
-  betterExpensive = this.throttledFunction(this.expensiveCall, 1000);
+  debounceFunction = (expensive2: ()=> void, delay: number)=>{
+    let timerId: any // NodeJS.Timeout;
+    return ()=>{
+      clearTimeout(timerId);
+      timerId = setTimeout(()=>{
+        expensive2();
+      }, delay);
+    }
+  }
+  // betterExpensive = this.throttledFunction(this.expensiveCall, 1000);
+  betterExpensive = this.debounceFunction(this.expensiveCall, 1000);
   expensiveCall(){
     console.log('expensive call...');
   }
