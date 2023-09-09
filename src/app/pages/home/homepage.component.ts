@@ -67,9 +67,13 @@ export class HomepageComponent implements OnInit  {
       })
       console.log(this.newArray);
 
+      console.time();
+      console.log(this.memoization(this.complexCompute)(1000));
+      console.timeEnd();
+
     }
   @HostListener('click') onClick(){
-    this.betterExpensive();
+    //this.betterExpensive();
     //this.expensiveCall();
   }
 
@@ -88,10 +92,10 @@ export class HomepageComponent implements OnInit  {
   }
   debounceFunction = (expensive2: ()=> void, delay: number)=>{
     let timerId: any // NodeJS.Timeout;
-    return (...args)=>{
+    return (...args: string[])=>{
       if(timerId) clearTimeout(timerId);
       timerId = setTimeout(()=>{
-        expensive2(); //
+       // expensive2(); //
          expensive2.apply(this, args);
       }, delay);
     }
@@ -100,6 +104,26 @@ export class HomepageComponent implements OnInit  {
   betterExpensive = this.debounceFunction(this.expensiveCall, 1000);
   expensiveCall(){
     console.log('expensive call...');
+  }
+
+  complexCompute(n){
+    let sum = 0;
+    for(let i=0; i<n; i++){
+      sum += i;
+    }
+    return sum;
+  }
+
+  memoization = (func)=>{
+    let caching = {};
+    return (...args)=>{
+      if(caching[args[0]]){
+        return caching[args[0]]
+      }
+      let result = func(args[0]);
+      caching[args[0]] = result;
+      return result;
+    }
   }
 
   }
