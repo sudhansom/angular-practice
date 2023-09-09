@@ -88,10 +88,11 @@ export class HomepageComponent implements OnInit  {
   }
   debounceFunction = (expensive2: ()=> void, delay: number)=>{
     let timerId: any // NodeJS.Timeout;
-    return ()=>{
-      clearTimeout(timerId);
+    return (...args)=>{
+      if(timerId) clearTimeout(timerId);
       timerId = setTimeout(()=>{
-        expensive2(); // expensive2.apply(this, arguments);
+        expensive2(); //
+         expensive2.apply(this, args);
       }, delay);
     }
   }
