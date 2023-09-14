@@ -6,6 +6,7 @@ import { HomepageComponent } from "./homepage.component";
 import { CarousalModule } from "src/app/components/carousal/carousal.module";
 import { BetterHighlightDirective } from "src/app/directives/better-highlight.directive";
 import { BasicHighlightDirective } from "src/app/directives/basic-highlight.directive";
+import { NavbarModule } from "src/app/components/navbar/navbar.module";
 
 const appRoutes: Routes = [
   {
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(appRoutes),
     CarousalModule,
-
+    NavbarModule,
   ],
   exports:[],
   providers: [],
