@@ -1,0 +1,8 @@
+<div>
+    <ng-content></ng-content>
+</div>
+<div *ngIf="showPrev$ | async"  class="prev" (click)="handlePrev()">&#8249;</div>
+<div *ngIf="showNext$ | async" class="next" (click)="handleNext()">&#8250;</div>
+<div class="bullets" *ngIf="bullets$ | async as bullets">
+    <div class="bullet" [class.selected]="bullet" *ngFor="let bullet of bullets; let i = index;" (click)="slideToIndex(i)"></div>
+</div>

@@ -1,0 +1,42 @@
+:host {
+    display: block;
+    position: relative;
+    padding: 24px;
+    height: var(--carousal-height);
+    .prev , .next {
+        position: absolute;
+        scale: 6;
+        color: red;
+        top: calc(var(--carousal-height)/2);
+        cursor: pointer;
+    }
+
+    .prev {
+        left: 24px;
+    }
+    .next {
+        right: 24px;
+    }
+
+    .bullets {
+        display: flex;
+        gap: 5px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        .bullet {
+            height: 5px;
+            width: 12px;
+            border-radius: 3px;
+            background-color: gray;
+            cursor: pointer;
+
+            &.selected {
+                background-color: red;
+            }
+        }
+    }
+
+
+}
