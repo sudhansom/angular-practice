@@ -46,29 +46,6 @@ export class HomepageComponent implements OnInit  {
   newArray = []
   ngOnInit(): void {
 
-    const customIntervalObserver = Observable.create((observer) => {
-      let count = 0;
-      setInterval(()=>{
-        console.log(count);
-        observer.next(count);
-        if(count > 5){
-          observer.error("error occured....");
-        }
-        count ++;
-      }, 1000)
-    });
-    customIntervalObserver.subscribe((data)=>{
-      console.log('dfdsfsd',data);
-    },
-    (error)=>{
-      console.log(error);
-    },
-    ()=>{
-      console.log("completed....");
-    }
-
-
-    )
     //debugger;
     this.input.forEach(
       item => {
