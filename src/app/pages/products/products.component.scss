@@ -4,10 +4,11 @@
     margin: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 36px;
     padding: 12px;
 
     .each-product {
+      cursor: pointer;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -20,13 +21,24 @@
         border-radius: 50%;
         background-color: green;
       }
+
+      .header {
+        font-size: 24px;
+      }
+
+      .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
     }
 
     .each-product:hover::before {
       content: "";
       position: absolute;
-      inset: -10px;
-      background-color: gray;
+      inset: -18px;
+      background-color: rgb(222, 217, 217);
       border-radius: 12px;
       z-index: -10;
     }
