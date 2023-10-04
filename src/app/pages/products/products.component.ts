@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./products.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductsComponent {}
+export class ProductsComponent {
+  products = Array.from(Array(50));
+}
