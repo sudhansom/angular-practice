@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-* {
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--clr-neutral-900);
+  margin: 0;
 }
