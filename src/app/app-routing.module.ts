@@ -87,6 +87,13 @@ const routes: Routes = [
         (mod) => mod.ProductsModule
       ),
   },
+  {
+    path: 'formatting-context',
+    loadChildren: () =>
+      import('./pages/formatting-context/formatting-context.module').then(
+        (mod) => mod.FormattingContextModule
+      ),
+  },
 ];
 
 @NgModule({
