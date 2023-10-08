@@ -94,6 +94,13 @@ const routes: Routes = [
         (mod) => mod.FormattingContextModule
       ),
   },
+  {
+    path: 'debounce-time',
+    loadChildren: () =>
+      import('./pages/debounse-time/debounse-time.module').then(
+        (mod) => mod.ObservableModule
+      ),
+  },
 ];
 
 @NgModule({
