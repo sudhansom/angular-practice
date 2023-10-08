@@ -2,7 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subscription, of, concat } from 'rxjs';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { CustomValidators } from './custom-validators';
 
 @Component({
   selector: 'app-debounse-time',
@@ -14,14 +16,19 @@ export class DebounseTimeComponent implements OnInit {
   subscription!: Subscription;
   result$: Observable<number>;
 
-  form: FormGroup;
+  projectForm: FormGroup;
 
   ngOnInit(): void {
-    const source1$ = of(1, 2, 3);
-    const source2$ = of(4, 5, 6);
-    const source3$ = of(7, 8, 9);
-
-    this.result$ = concat(source1$, source2$, source3$);
-    this.result$.subscribe(console.log);
+    this.projectForm = new FormGroup({
+      projectName: new FormControl(null, [
+        Validators.required,
+        CustomValidators.invalidProjectName,
+      ]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      projectStatus: new FormControl('critical'),
+    });
+  }
+  onSaveProject() {
+    console.log(this.projectForm.value);
   }
 }
