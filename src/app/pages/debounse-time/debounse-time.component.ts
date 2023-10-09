@@ -52,8 +52,11 @@ export class DebounseTimeComponent implements OnInit, AfterViewInit {
     return of('You typed: ' + word);
   }
   ngAfterViewInit(): void {
-    const abc$ = fromEvent<any>(this.myInput.nativeElement, 'keyup').pipe(
-      map((e) => e.target.value),
+    const abc$ = fromEvent<KeyboardEvent>(
+      this.myInput.nativeElement,
+      'keyup'
+    ).pipe(
+      map((e) => e.key),
       debounceTime(400),
       distinctUntilChanged(),
       switchMap((item) => this.makeSomeWords(item)) // hit the search url here....

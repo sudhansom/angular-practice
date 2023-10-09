@@ -101,6 +101,13 @@ const routes: Routes = [
         (mod) => mod.ObservableModule
       ),
   },
+  {
+    path: 'animation',
+    loadChildren: () =>
+      import('./pages/animation/animation.module').then(
+        (mod) => mod.AnimationModule
+      ),
+  },
 ];
 
 @NgModule({
