@@ -7,16 +7,31 @@
     &__logo {
       width: 30px;
       height: 25px;
-      background-color: red;
+      background-color: rgb(101, 33, 33);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      p {
+        font-size: 10px;
+        color: #fff;
+        letter-spacing: 2px;
+      }
     }
     &__top-navigations {
       display: none;
+      @media (min-width: 768px) {
+        display: flex;
+      }
       gap: 12px;
     }
     ul[class] {
       padding: 0;
       margin: 0;
       list-style-type: none;
+      li {
+        cursor: pointer;
+      }
     }
     &__hamburger-menu {
       width: 30px;
@@ -31,6 +46,9 @@
       }
       span:last-of-type {
         margin-bottom: 0;
+      }
+      @media (min-width: 768px) {
+        display: none;
       }
     }
   }

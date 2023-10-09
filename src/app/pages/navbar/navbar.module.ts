@@ -2,20 +2,20 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AnimationComponent } from './animation.component';
+import { NavbarComponent } from './navbar.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: AnimationComponent,
+    component: NavbarComponent,
   },
 ];
 
 @NgModule({
-  declarations: [AnimationComponent],
+  declarations: [NavbarComponent],
   imports: [CommonModule, RouterModule.forChild(appRoutes)],
   exports: [],
   providers: [],
   bootstrap: [],
 })
-export class AnimationModule {}
+export class NavbarModule {}

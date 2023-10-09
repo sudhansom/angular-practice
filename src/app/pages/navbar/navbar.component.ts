@@ -6,13 +6,13 @@ import {
 } from './animations';
 
 @Component({
-  selector: 'app-animation',
-  templateUrl: './animation.component.html',
-  styleUrls: ['./animation.component.scss'],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [burgerMenuLine1, burgerMenuLine2, burgerMenuLine3],
 })
-export class AnimationComponent {
+export class NavbarComponent {
   open = false;
 
   toogleMenu() {

@@ -102,11 +102,9 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'animation',
+    path: 'navbar',
     loadChildren: () =>
-      import('./pages/animation/animation.module').then(
-        (mod) => mod.AnimationModule
-      ),
+      import('./pages/navbar/navbar.module').then((mod) => mod.NavbarModule),
   },
 ];
 
