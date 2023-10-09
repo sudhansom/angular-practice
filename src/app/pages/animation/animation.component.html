@@ -1,1 +1,15 @@
 <h1>Animation----</h1>
+<div class="container">
+  <div class="container__logo"></div>
+  <ul class="container__top-navigations">
+    <li>Services</li>
+    <li>Profile</li>
+    <li>About</li>
+    <li>Logout</li>
+  </ul>
+  <div class="container__hamburger-menu" (click)="toogleMenu()">
+    <span [@burgerMenuLine1]="open ? 'open' : '*'"></span>
+    <span [@burgerMenuLine2]="open ? 'open' : '*'"></span>
+    <span [@burgerMenuLine3]="open ? 'open' : '*'"></span>
+  </div>
+</div>
