@@ -10,4 +10,24 @@
     padding: 0;
     margin: 0;
   }
+  .mobile-nav-extension {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px auto;
+
+    ul {
+      display: block;
+    }
+
+    ul li {
+      cursor: pointer;
+      width: 100%;
+      list-style-type: none;
+      padding: 12px;
+      margin: 5px;
+      //background-color: rgb(206, 202, 202);
+    }
+  }
 }

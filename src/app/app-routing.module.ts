@@ -101,11 +101,6 @@ const routes: Routes = [
         (mod) => mod.ObservableModule
       ),
   },
-  {
-    path: 'navbar',
-    loadChildren: () =>
-      import('./pages/navbar/navbar.module').then((mod) => mod.NavbarModule),
-  },
 ];
 
 @NgModule({

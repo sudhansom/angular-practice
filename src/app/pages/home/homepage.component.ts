@@ -1,6 +1,13 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  OnInit,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-homepage',
@@ -9,6 +16,8 @@ import { Observable } from 'rxjs';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomepageComponent implements OnInit {
+  open$ = this.uiService.open$;
+  constructor(private uiService: UiService, private el: ElementRef) {}
   input = [
     {
       role: 'user',
@@ -126,4 +135,13 @@ export class HomepageComponent implements OnInit {
     return a + b;
   };
   anotherAbc = this.abc.bind(null, 1);
+
+  openNavMenu() {
+    this.uiService.open$.next(false);
+  }
+  @HostListener('window: resize') onResize() {
+    if (window.innerWidth > 768) {
+      this.open$.next(false);
+    }
+  }
 }

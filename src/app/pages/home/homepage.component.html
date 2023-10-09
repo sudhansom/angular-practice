@@ -1,27 +1,37 @@
 <app-navbar></app-navbar>
+<div *ngIf="!(open$ | async)">
+  <h1>Homepage</h1>
+  <a routerLink="/observable">observable</a>
+  <hr />
+  <a routerLink="/all-maps">All maps</a>
+  <hr />
+  <a routerLink="/countries">All Countries</a>
+  <hr />
+  <a routerLink="/cold-hot">Cold Hot Observables</a>
+  <hr />
+  <a betterHighlight routerLink="/js-concepts">Javascript Concepts practice</a>
+  <hr />
+  <a routerLink="/formatting-context">formatting context by Kevin Powel</a>
+  <hr />
+  <a routerLink="/navbar">animation burgerMenu:</a>
+  <hr />
+  <a routerLink="/debounce-time">practice debounce:</a>
+  <h1 basicHichlight>Carousal:</h1>
+  <div class="carousal-container" [style.--carousal-height]="'400px'">
+    <app-carousal></app-carousal>
+  </div>
 
-<h1>Homepage</h1>
-<a routerLink="/observable">observable</a>
-<hr />
-<a routerLink="/all-maps">All maps</a>
-<hr />
-<a routerLink="/countries">All Countries</a>
-<hr />
-<a routerLink="/cold-hot">Cold Hot Observables</a>
-<hr />
-<a betterHighlight routerLink="/js-concepts">Javascript Concepts practice</a>
-<hr />
-<a routerLink="/formatting-context">formatting context by Kevin Powel</a>
-<hr />
-<a routerLink="/navbar">animation burgerMenu:</a>
-<hr />
-<a routerLink="/debounce-time">practice debounce:</a>
-<h1 basicHichlight>Carousal:</h1>
-<div class="carousal-container" [style.--carousal-height]="'400px'">
-  <app-carousal></app-carousal>
+  <ul class="my-lists">
+    <li>abc</li>
+    <li>def</li>
+  </ul>
 </div>
 
-<ul class="my-lists">
-  <li>abc</li>
-  <li>def</li>
-</ul>
+<div *ngIf="open$ | async" class="mobile-nav-extension">
+  <ul class="container__top-navigations">
+    <li (click)="openNavMenu()">Services</li>
+    <li (click)="openNavMenu()">Profile</li>
+    <li (click)="openNavMenu()">About</li>
+    <li (click)="openNavMenu()">Logout</li>
+  </ul>
+</div>

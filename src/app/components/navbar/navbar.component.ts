@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
 import {
   burgerMenuLine1,
   burgerMenuLine2,
@@ -13,9 +14,10 @@ import {
   animations: [burgerMenuLine1, burgerMenuLine2, burgerMenuLine3],
 })
 export class NavbarComponent {
-  open = false;
+  constructor(private uiService: UiService) {}
+  open$ = this.uiService.open$;
 
   toogleMenu() {
-    this.open = !this.open;
+    this.open$.next(!this.uiService.open$.value);
   }
 }

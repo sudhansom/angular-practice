@@ -1,4 +1,3 @@
-<h1>Animation----</h1>
 <div class="container">
   <div class="container__logo"><p>logo</p></div>
   <ul class="container__top-navigations">
@@ -8,8 +7,8 @@
     <li>Logout</li>
   </ul>
   <div class="container__hamburger-menu" (click)="toogleMenu()">
-    <span [@burgerMenuLine1]="open ? 'open' : '*'"></span>
-    <span [@burgerMenuLine2]="open ? 'open' : '*'"></span>
-    <span [@burgerMenuLine3]="open ? 'open' : '*'"></span>
+    <span [@burgerMenuLine1]="(open$ | async) ? 'open' : '*'"></span>
+    <span [@burgerMenuLine2]="(open$ | async) ? 'open' : '*'"></span>
+    <span [@burgerMenuLine3]="(open$ | async) ? 'open' : '*'"></span>
   </div>
 </div>
