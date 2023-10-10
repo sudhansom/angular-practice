@@ -30,4 +30,11 @@
       //background-color: rgb(206, 202, 202);
     }
   }
+  form {
+    max-width: 600px;
+    margin: auto;
+    border: 1px solid gray;
+    border-radius: 12px;
+    padding: 18px;
+  }
 }
