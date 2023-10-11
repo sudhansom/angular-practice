@@ -101,6 +101,13 @@ const routes: Routes = [
         (mod) => mod.ObservableModule
       ),
   },
+  {
+    path: 'prep',
+    loadChildren: () =>
+      import('./pages/interview-prep/about.module').then(
+        (mod) => mod.AboutModule
+      ),
+  },
 ];
 
 @NgModule({
