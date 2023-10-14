@@ -13,4 +13,11 @@ export class UiService {
   toogleButton() {
     this._addShowButton.next(!this._addShowButton.getValue());
   }
+
+  print(val, containerId) {
+    let el = document.createElement('li');
+    el.innerText = val;
+
+    document.getElementById(containerId).appendChild(el);
+  }
 }
