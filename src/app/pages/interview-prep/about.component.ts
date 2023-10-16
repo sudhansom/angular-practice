@@ -66,4 +66,14 @@ export class AboutComponent implements OnInit {
     }
     return result;
   }
+
+  anamgramTest(str1: string, str2: string) {
+    console.log(str1.split('').sort().join(''));
+    console.log(str2.split('').sort().join(''));
+    if (str1.split('').sort().join() === str2.split('').sort().join()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
