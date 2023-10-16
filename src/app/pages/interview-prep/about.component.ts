@@ -68,12 +68,26 @@ export class AboutComponent implements OnInit {
   }
 
   anamgramTest(str1: string, str2: string) {
-    console.log(str1.split('').sort().join(''));
-    console.log(str2.split('').sort().join(''));
-    if (str1.split('').sort().join() === str2.split('').sort().join()) {
-      return true;
-    } else {
-      return false;
+    let word1 = str1.replace(/\s/g, '');
+    let word2 = str2.replace(/\s/g, '');
+
+    const charCount1 = {};
+    const charCount2 = {};
+
+    for (let char of word1) {
+      charCount1[char] = (charCount1[char] || 0) + 1;
     }
+
+    for (let char of word2) {
+      charCount2[char] = (charCount2[char] || 0) + 1;
+    }
+
+    for (let char in charCount1) {
+      if (charCount1[char] !== charCount2[char]) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
