@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   BehaviorSubject,
   Observable,
@@ -8,6 +9,8 @@ import {
   mergeMap,
   of,
   delay,
+  debounceTime,
+  switchMap,
 } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
 
@@ -27,15 +30,22 @@ export class AboutComponent implements OnInit {
     return of(item + 'final processed item').pipe(delay(2000));
   };
   ngOnInit(): void {
-    this.items$
-      .pipe(
-        mergeMap((item) => this.myfunc(item)),
-        mergeMap((item) => this.finalFunc(item))
-      )
-      .subscribe(console.log);
+    const http$ = this.form.valueChanges.pipe(
+      map((changes) => (changes.name = 'aaa')),
+      debounceTime(100),
+      switchMap((changes) => this.myFunc(changes))
+    );
+    http$.subscribe(console.log);
+  }
 
-    this._uiService.print('sudhan som poudel', 'containerId');
-    this._uiService.print('sudhan som poudel1', 'containerId');
-    this._uiService.print('sudhan som poudel2', 'containerId');
+  form = new FormGroup({
+    name: new FormControl('', Validators.required),
+  });
+
+  onSubmit() {
+    console.log(this.form.value);
+  }
+  myFunc(changes) {
+    return of(changes + '1').pipe();
   }
 }

@@ -1,2 +1,4 @@
-<h1>About</h1>
-<ul id="containerId"></ul>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="name" />
+  <button type="submit">Submit</button>
+</form>

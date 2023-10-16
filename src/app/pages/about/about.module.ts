@@ -1,26 +1,25 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { AboutComponent } from "./about.component";
+import { AboutComponent } from './about.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    component: AboutComponent
-  }
-]
+    component: AboutComponent,
+  },
+];
 
 @NgModule({
-  declarations: [
-    AboutComponent,
-
-  ],
+  declarations: [AboutComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(appRoutes),
+    ReactiveFormsModule,
   ],
-  exports:[],
+  exports: [],
   providers: [],
   bootstrap: [],
 })
