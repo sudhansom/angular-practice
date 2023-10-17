@@ -90,4 +90,24 @@ export class AboutComponent implements OnInit {
 
     return true;
   }
+  mergeSort(arr: number[]) {
+    if (arr.length < 2) {
+      return arr;
+    }
+    const mid = Math.floor(arr.length / 2);
+    const leftArr = arr.slice(0, mid);
+    const rightArr = arr.slice(mid);
+    return this.merge(this.mergeSort(leftArr), this.mergeSort(rightArr));
+  }
+  merge(leftArray: number[], rightArray: number[]) {
+    const sortedArray = [];
+    while (leftArray.length && rightArray.length) {
+      if (leftArray[0] < rightArray[0]) {
+        sortedArray.push(leftArray.shift());
+      } else {
+        sortedArray.push(rightArray.shift());
+      }
+    }
+    return [...sortedArray, ...leftArray, ...rightArray];
+  }
 }

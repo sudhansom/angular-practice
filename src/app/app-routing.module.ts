@@ -108,6 +108,11 @@ const routes: Routes = [
         (mod) => mod.AboutModule
       ),
   },
+  {
+    path: 'animations',
+    loadChildren: () =>
+      import('./pages/animations/about.module').then((mod) => mod.AboutModule),
+  },
 ];
 
 @NgModule({
