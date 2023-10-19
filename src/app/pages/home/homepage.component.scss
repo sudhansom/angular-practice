@@ -54,10 +54,13 @@
   border-radius: 12px;
   padding: 18px;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-content: space-between;
+  display: grid;
+  grid-template-areas:
+    "system system . ml"
+    "algo algo algo algo"
+    "frontend programming programming programming";
+
+  grid-template-columns: 40fr 10fr 20fr 30fr;
   row-gap: 24px;
 
   div {
@@ -68,31 +71,29 @@
 
   .product-algo {
     background-color: #626ee3;
-    order: 2;
     flex-basis: 75%;
     margin: auto;
+    grid-area: algo;
   }
   .product-system {
     background-color: #890023;
-    flex-basis: 50%;
     align-self: center;
+    grid-area: system;
   }
   .product-ml {
     background-color: #f37f1b;
     height: 75px;
-    flex-basis: 30%;
+    grid-area: ml;
   }
   .product-frontend {
     background-color: #11967e;
-    order: 3;
-    flex-basis: 40%;
+    grid-area: frontend;
     align-self: flex-end;
   }
   .product-programming {
     background-color: #f21b3f;
-    order: 4;
     height: 75px;
-    flex-grow: 1;
     margin-left: 10px;
+    grid-area: programming;
   }
 }
