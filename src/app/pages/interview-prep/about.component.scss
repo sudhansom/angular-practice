@@ -5,3 +5,44 @@
   border-radius: 12px;
   padding: 24px;
 }
+.algo-purchase {
+  max-width: 800px;
+  margin: 50px auto;
+  border: 1px solid gray;
+  border-radius: 12px;
+  padding: 24px;
+  ol {
+    display: flex;
+    //justify-content: space-between;
+  }
+
+  li {
+    list-style-type: none;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  li::before {
+    content: "1";
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px auto;
+  }
+  li:not(:first-of-type)::after {
+    content: " ";
+    display: block;
+    width: calc(100% - 30px);
+    height: 5px;
+    background-color: black;
+    transform: translateX(-50%);
+  }
+}

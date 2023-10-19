@@ -46,3 +46,53 @@
     padding: 18px;
   }
 }
+
+.wrapper {
+  max-width: 800px;
+  margin: 24px auto;
+  border: 1px solid gray;
+  border-radius: 12px;
+  padding: 18px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  row-gap: 24px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-algo {
+    background-color: #626ee3;
+    order: 2;
+    flex-basis: 75%;
+    margin: auto;
+  }
+  .product-system {
+    background-color: #890023;
+    flex-basis: 50%;
+    align-self: center;
+  }
+  .product-ml {
+    background-color: #f37f1b;
+    height: 75px;
+    flex-basis: 30%;
+  }
+  .product-frontend {
+    background-color: #11967e;
+    order: 3;
+    flex-basis: 40%;
+    align-self: flex-end;
+  }
+  .product-programming {
+    background-color: #f21b3f;
+    order: 4;
+    height: 75px;
+    flex-grow: 1;
+    margin-left: 10px;
+  }
+}
