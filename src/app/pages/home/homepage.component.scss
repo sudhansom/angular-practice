@@ -67,11 +67,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 50px;
   }
 
   .product-algo {
     background-color: #626ee3;
-    flex-basis: 75%;
+    width: 75%;
     margin: auto;
     grid-area: algo;
   }
@@ -95,5 +96,80 @@
     height: 75px;
     margin-left: 10px;
     grid-area: programming;
+  }
+}
+
+// .logo {
+//   background-color: #02203c;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 100px;
+//   height: 100px;
+//   .algo-expert {
+//     width: 10px;
+//     height: 10px;
+//     border: 5px solid white;
+//     display: flex;
+//     justify-content: center;
+//     background-color: black;
+//     align-items: center;
+//     &::before {
+//       content: "";
+//       width: 100px;
+//       height: 30px;
+//       border-radius: 50%;
+//       border: 2px solid white;
+//       transform: rotate(-45deg);
+//       position: absolute;
+//     }
+//     &::after {
+//       content: "";
+//       width: 100px;
+//       height: 30px;
+//       display: flex;
+//       position: absolute;
+//       border: 2px solid white;
+//       border-radius: 50%;
+//       transform: rotate(45deg);
+//     }
+//   }
+//   h1 {
+//     color: white;
+//   }
+// }
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #234;
+  padding: 24px;
+  gap: 24px;
+
+  .algo-expert {
+    width: 10px;
+    height: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 100px;
+      height: 30px;
+      border: 1px solid white;
+      border-radius: 50%;
+      position: absolute;
+    }
+    &::before {
+      transform: rotate(-45deg);
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
   }
 }
