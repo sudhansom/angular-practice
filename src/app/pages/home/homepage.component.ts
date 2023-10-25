@@ -111,7 +111,7 @@ export class HomepageComponent implements OnInit {
     console.log('expensive call...');
   }
 
-  complexCompute(n) {
+  complexCompute(n: number): number {
     let sum = 0;
     for (let i = 0; i < n; i++) {
       sum += i;
@@ -119,7 +119,7 @@ export class HomepageComponent implements OnInit {
     return sum;
   }
 
-  memoization = (func) => {
+  memoization = (func: (number: number) => number) => {
     let caching = {};
     return (...args) => {
       if (caching[args[0]]) {
