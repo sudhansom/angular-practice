@@ -78,10 +78,6 @@ export class HomepageComponent implements OnInit {
     console.log(this.memoization(this.complexCompute)(1000));
     console.timeEnd();
   }
-  @HostListener('click') onClick() {
-    //this.betterExpensive();
-    //this.expensiveCall();
-  }
 
   throttledFunction = (expensive1: () => void, limit: number) => {
     let flag = true;
