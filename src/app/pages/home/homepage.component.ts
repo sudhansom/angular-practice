@@ -4,6 +4,8 @@ import {
   HostBinding,
   HostListener,
   OnInit,
+  AfterViewChecked,
+  ViewChild,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -15,7 +17,8 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['./homepage.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, AfterViewChecked {
+  @ViewChild('newBtn') newBtn: ElementRef;
   open$ = this.uiService.open$;
   constructor(private uiService: UiService, private el: ElementRef) {}
   input = [
@@ -139,5 +142,8 @@ export class HomepageComponent implements OnInit {
     if (window.innerWidth > 768) {
       this.open$.next(false);
     }
+  }
+  ngAfterViewChecked(): void {
+    this.newBtn.nativeElement.addEventListener('click', () => {});
   }
 }
