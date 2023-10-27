@@ -146,4 +146,7 @@ export class HomepageComponent implements OnInit, AfterViewChecked {
   ngAfterViewChecked(): void {
     this.newBtn.nativeElement.addEventListener('click', () => {});
   }
+
+  capitalizeString(str: string){
+  //return str.replace(/\w\S*\g, (w)=>w.replace(/^\w/, (c)=>c.toUpperCase()));
 }
