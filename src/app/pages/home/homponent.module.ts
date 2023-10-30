@@ -8,6 +8,8 @@ import { BetterHighlightDirective } from 'src/app/directives/better-highlight.di
 import { BasicHighlightDirective } from 'src/app/directives/basic-highlight.directive';
 import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 
+import { MatIconModule } from '@angular/material/icon';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -26,6 +28,7 @@ const appRoutes: Routes = [
     RouterModule.forChild(appRoutes),
     CarousalModule,
     NavbarModule,
+    MatIconModule,
   ],
   exports: [],
   providers: [],
