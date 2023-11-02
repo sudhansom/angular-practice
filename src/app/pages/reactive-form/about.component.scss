@@ -19,6 +19,9 @@
       gap: 12px;
       margin-top: 12px;
       .person {
+        border: 1px solid rgb(198, 195, 195);
+        border-radius: 12px;
+        padding: 12px;
         display: flex;
         align-items: center;
         gap: 24px;
@@ -59,28 +62,57 @@
           border-radius: 12px;
         }
       }
-      .courses {
-        text-align: left;
+      .extra {
+        border: 1px solid rgb(198, 195, 195);
+        border-radius: 12px;
+        padding: 12px;
         display: flex;
+        flex-direction: column;
         gap: 12px;
-        span {
-          font-weight: bold;
+        .courses {
+          text-align: left;
+          display: flex;
+          gap: 12px;
+          span {
+            font-weight: bold;
+          }
+          select {
+            border-radius: 6px;
+            padding-inline: 6px;
+          }
         }
-        select {
-          border-radius: 6px;
-          padding-inline: 6px;
+        .fruits-container {
+          text-align: left;
+          font-weight: bold;
+          .fruits {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            padding-left: 24px;
+            label {
+              display: inline;
+            }
+            input {
+              width: 18px;
+              margin-right: 12px;
+            }
+          }
+        }
+        .colors {
+          span {
+            font-weight: bold;
+          }
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 12px;
         }
       }
-      .fruits-container {
-        text-align: left;
-        font-weight: bold;
-        .fruits {
-          display: flex;
-          flex-direction: column;
-          gap: 9px;
-          input {
-            display: inline;
-          }
+      button {
+        border-radius: 18px;
+        transition: all 0.4s ease-in-out;
+        &:hover {
+          background-color: rgb(192, 186, 186);
         }
       }
     }

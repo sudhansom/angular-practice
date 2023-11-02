@@ -30,6 +30,10 @@
             Others
           </label>
         </div>
+        <label
+          >Years of Experience:
+          <input type="number" />
+        </label>
       </div>
       <div class="person__image" (click)="browseImage()">
         <input
@@ -41,27 +45,41 @@
         />
       </div>
     </div>
-    <div class="courses">
-      <span>Select Course:</span>
-      <select name="" id="">
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-        <option value="JavaScript">JavaScript</option>
-        <option value=".Net">.Net</option>
-      </select>
-    </div>
-    <div class="fruits-container">
-      <span>Select Fruits:</span>
-      <div class="fruits">
-        <input type="checkbox" />
-        <input type="checkbox" />
-        <input type="checkbox" />
-        <input type="checkbox" />
+    <div class="extra">
+      <div class="courses">
+        <span>Select Course:</span>
+        <select name="" id="">
+          <option value="Java">Java</option>
+          <option value="Python">Python</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value=".Net">.Net</option>
+        </select>
       </div>
+      <div class="fruits-container">
+        <span>Select Fruits:</span>
+        <div class="fruits">
+          <label
+            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+          >
+          <label
+            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+          >
+          <label
+            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+          >
+          <label
+            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+          >
+          <label
+            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+          >
+        </div>
+      </div>
+      <label class="colors"
+        ><span>Select Color:</span>
+        <input type="color" />
+      </label>
     </div>
-    <label
-      >Select Color:
-      <input type="color" />
-    </label>
+    <button type="submit">Submit</button>
   </form>
 </div>
