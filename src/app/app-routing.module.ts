@@ -113,6 +113,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/animations/about.module').then((mod) => mod.AboutModule),
   },
+  {
+    path: 'reacitve-form',
+    loadChildren: () =>
+      import('./pages/reactive-form/about.module').then(
+        (mod) => mod.AboutModule
+      ),
+  },
 ];
 
 @NgModule({
