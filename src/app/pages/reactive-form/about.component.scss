@@ -71,6 +71,18 @@
           padding-inline: 6px;
         }
       }
+      .fruits-container {
+        text-align: left;
+        font-weight: bold;
+        .fruits {
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+          input {
+            display: inline;
+          }
+        }
+      }
     }
   }
 }
