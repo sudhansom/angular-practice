@@ -1,1 +1,50 @@
-<h1>Reactive Form</h1>
+<div class="container">
+  <h1>Reactive Form</h1>
+  <form>
+    <div class="person">
+      <div class="person__info">
+        <label
+          >Name:
+          <input type="text" />
+        </label>
+        <label
+          >Birth Date
+          <input type="date" />
+        </label>
+        <div class="person__info__gender">
+          <span>Gender:</span>
+          <label>
+            <input type="radio" name="gender" />
+            Male
+          </label>
+          <label>
+            <input type="radio" name="gender" />
+            Female
+          </label>
+          <label>
+            <input type="radio" name="gender" />
+            Others
+          </label>
+        </div>
+      </div>
+      <div class="person__image" (click)="browseImage()">
+        <input
+          type="file"
+          accept=".png,.jpg,.jpeg"
+          [style]="{ display: 'none' }"
+          #image
+          (change)="selectImage($event)"
+        />
+      </div>
+    </div>
+    <div class="courses">
+      <span>Select Course:</span>
+      <select name="" id="">
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value=".Net">.Net</option>
+      </select>
+    </div>
+  </form>
+</div>

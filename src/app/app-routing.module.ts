@@ -114,7 +114,7 @@ const routes: Routes = [
       import('./pages/animations/about.module').then((mod) => mod.AboutModule),
   },
   {
-    path: 'reacitve-form',
+    path: 'reactive-form',
     loadChildren: () =>
       import('./pages/reactive-form/about.module').then(
         (mod) => mod.AboutModule

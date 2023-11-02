@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   BehaviorSubject,
@@ -21,6 +27,7 @@ import { UiService } from 'src/app/services/ui.service';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent implements OnInit {
+  @ViewChild('image') image: ElementRef;
   items$ = from(['apple', 'laptop', 'house', 'football']);
   constructor(private _uiService: UiService) {}
   myfunc = (item) => {
@@ -47,5 +54,11 @@ export class AboutComponent implements OnInit {
   }
   myFunc(changes) {
     return of(changes + '1').pipe();
+  }
+  browseImage() {
+    this.image.nativeElement.click();
+  }
+  selectImage(image: any) {
+    console.log(image);
   }
 }
