@@ -1,24 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {
-  BehaviorSubject,
-  Observable,
-  from,
-  map,
-  mergeAll,
-  mergeMap,
-  of,
-  delay,
-  debounceTime,
-  switchMap,
-} from 'rxjs';
-import { UiService } from 'src/app/services/ui.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-about',
@@ -28,37 +9,29 @@ import { UiService } from 'src/app/services/ui.service';
 })
 export class AboutComponent implements OnInit {
   @ViewChild('image') image: ElementRef;
-  items$ = from(['apple', 'laptop', 'house', 'football']);
-  constructor(private _uiService: UiService) {}
-  myfunc = (item) => {
-    return of(item + ' done').pipe(delay(1000));
-  };
-  finalFunc = (item) => {
-    return of(item + 'final processed item').pipe(delay(2000));
-  };
+  myForm: FormGroup;
+
   ngOnInit(): void {
-    const http$ = this.form.valueChanges.pipe(
-      map((changes) => (changes.name = 'aaa')),
-      debounceTime(100),
-      switchMap((changes) => this.myFunc(changes))
-    );
-    http$.subscribe(console.log);
+    this.myForm = new FormGroup({
+      person: new FormGroup({
+        name: new FormControl(null, Validators.required),
+        dob: new FormControl(null, Validators.required),
+        email: new FormControl(null, Validators.required),
+        gender: new FormControl(null, Validators.required),
+        experience: new FormControl(0),
+        image: new FormControl(null),
+      }),
+      extra: new FormGroup({}),
+    });
   }
 
-  form = new FormGroup({
-    name: new FormControl('', Validators.required),
-  });
-
-  onSubmit() {
-    console.log(this.form.value);
-  }
-  myFunc(changes) {
-    return of(changes + '1').pipe();
-  }
   browseImage() {
     this.image.nativeElement.click();
   }
   selectImage(image: any) {
     console.log(image);
+  }
+  submitForm() {
+    console.log(this.myForm.value);
   }
 }

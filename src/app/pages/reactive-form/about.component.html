@@ -1,38 +1,38 @@
 <div class="container">
   <h1>Reactive Form</h1>
-  <form>
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()">
     <div class="person">
-      <div class="person__info">
+      <div class="person__info" formGroupName="person">
         <label
           >Name:
-          <input type="text" />
+          <input type="text" formControlName="name" />
         </label>
         <label
           >Birth Date
-          <input type="date" />
+          <input type="date" formControlName="dob" />
         </label>
         <label
           >Email:
-          <input type="email" />
+          <input type="email" formControlName="email" />
         </label>
         <div class="person__info__gender">
           <span>Gender:</span>
           <label>
-            <input type="radio" name="gender" />
+            <input type="radio" name="gender" formControlName="gender" />
             Male
           </label>
           <label>
-            <input type="radio" name="gender" />
+            <input type="radio" name="gender" formControlName="gender" />
             Female
           </label>
           <label>
-            <input type="radio" name="gender" />
+            <input type="radio" name="gender" formControlName="gender" />
             Others
           </label>
         </div>
         <label
           >Years of Experience:
-          <input type="number" />
+          <input type="number" formControlName="experience" />
         </label>
       </div>
       <div class="person__image" (click)="browseImage()">
