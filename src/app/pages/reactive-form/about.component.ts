@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
@@ -8,8 +8,8 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AboutComponent implements OnInit {
-  @ViewChild('image') image: ElementRef;
   myForm: FormGroup;
+  imagePreview: any;
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -25,15 +25,19 @@ export class AboutComponent implements OnInit {
         course: new FormControl('java', Validators.required),
         fruits: new FormArray([]),
         color: new FormControl(null),
+        detail: new FormControl(null),
       }),
     });
   }
-
-  browseImage() {
-    this.image.nativeElement.click();
-  }
-  selectImage(image: any) {
-    console.log(image);
+  selectImage(event: Event) {
+    const image = (event.target as HTMLInputElement).files[0];
+    this.myForm.patchValue({ person: { image: image } });
+    this.myForm.get('person.image').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result;
+    };
+    reader.readAsDataURL(image);
   }
   submitForm() {
     console.log(this.myForm.value);
