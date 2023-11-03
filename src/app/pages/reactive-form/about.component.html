@@ -18,15 +18,15 @@
         <div class="person__info__gender">
           <span>Gender:</span>
           <label>
-            <input type="radio" name="gender" formControlName="gender" />
+            <input type="radio" value="male" formControlName="gender" />
             Male
           </label>
           <label>
-            <input type="radio" name="gender" formControlName="gender" />
+            <input type="radio" value="female" formControlName="gender" />
             Female
           </label>
           <label>
-            <input type="radio" name="gender" formControlName="gender" />
+            <input type="radio" value="others" formControlName="gender" />
             Others
           </label>
         </div>
@@ -45,10 +45,10 @@
         />
       </div>
     </div>
-    <div class="extra">
+    <div class="extra" formGroupName="extra">
       <div class="courses">
         <span>Select Course:</span>
-        <select name="" id="">
+        <select name="" id="" formControlName="course">
           <option value="Java">Java</option>
           <option value="Python">Python</option>
           <option value="JavaScript">JavaScript</option>
@@ -59,25 +59,45 @@
         <span>Select Fruits:</span>
         <div class="fruits">
           <label
-            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+            ><input
+              type="checkbox"
+              value="√Lorem ipsum dolor sit amet. 1"
+              (change)="saveOptions($event)"
+            />Lorem ipsum dolor sit amet. 1</label
           >
           <label
-            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+            ><input
+              type="checkbox"
+              value="√Lorem ipsum dolor sit amet. 2"
+              (change)="saveOptions($event)"
+            />Lorem ipsum dolor sit amet. 2</label
           >
           <label
-            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+            ><input
+              type="checkbox"
+              value="Lorem ipsum dolor sit amet. 3"
+              (change)="saveOptions($event)"
+            />Lorem ipsum dolor sit amet. 3</label
           >
           <label
-            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+            ><input
+              type="checkbox"
+              value="√Lorem ipsum dolor sit amet. 4"
+              (change)="saveOptions($event)"
+            />Lorem ipsum dolor sit amet. 4</label
           >
           <label
-            ><input type="checkbox" />Lorem ipsum dolor sit amet. Et.</label
+            ><input
+              type="checkbox"
+              value="√Lorem ipsum dolor sit amet. 5"
+              (change)="saveOptions($event)"
+            />Lorem ipsum dolor sit amet. 5</label
           >
         </div>
       </div>
       <label class="colors"
         ><span>Select Color:</span>
-        <input type="color" />
+        <input type="color" formControlName="color" />
       </label>
     </div>
     <button type="submit">Submit</button>

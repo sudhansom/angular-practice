@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-about',
@@ -21,7 +21,11 @@ export class AboutComponent implements OnInit {
         experience: new FormControl(0),
         image: new FormControl(null),
       }),
-      extra: new FormGroup({}),
+      extra: new FormGroup({
+        course: new FormControl('java', Validators.required),
+        fruits: new FormArray([]),
+        color: new FormControl(null),
+      }),
     });
   }
 
@@ -33,5 +37,15 @@ export class AboutComponent implements OnInit {
   }
   submitForm() {
     console.log(this.myForm.value);
+  }
+
+  saveOptions(value: any) {
+    if (!this.myForm.value.extra.fruits.includes(value.target.defaultValue)) {
+      this.myForm.value.extra.fruits.push(value.target.defaultValue);
+    } else {
+      this.myForm.value.extra.fruits = this.myForm.value.extra.fruits.filter(
+        (item: string) => item !== value.target.defaultValue
+      );
+    }
   }
 }
