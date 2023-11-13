@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 export class AboutComponent implements OnInit {
   myForm: FormGroup;
   imagePreview: any;
-
+  // for image we should use formData ;
   ngOnInit(): void {
     this.myForm = new FormGroup({
       person: new FormGroup({
