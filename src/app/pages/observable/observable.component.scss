@@ -11,6 +11,22 @@
           object-fit: cover;
         }
       }
+      .card-text {
+        padding: 12px;
+        h4 {
+          margin-block: 12px;
+        }
+      }
+    }
+    .card:not(:first-child) {
+      margin-left: -50px;
+      transition: all 0.4s ease-in-out;
+    }
+    .card:hover {
+      transform: translateY(-20px);
+    }
+    .card:hover ~ .card {
+      left: 50px;
     }
   }
 }
