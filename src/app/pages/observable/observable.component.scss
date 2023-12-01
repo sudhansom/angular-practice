@@ -29,4 +29,11 @@
       left: 50px;
     }
   }
+  .round-border {
+    padding: 3px 6px;
+    background-color: rgb(40, 131, 223);
+    border-radius: 6px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
