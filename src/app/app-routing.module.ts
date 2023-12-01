@@ -120,6 +120,11 @@ const routes: Routes = [
         (mod) => mod.AboutModule
       ),
   },
+  {
+    path: 'leetcode',
+    loadChildren: () =>
+      import('./pages/leetcode/about.module').then((mod) => mod.AboutModule),
+  },
 ];
 
 @NgModule({
