@@ -125,6 +125,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/leetcode/about.module').then((mod) => mod.AboutModule),
   },
+  {
+    path: 'proacademy',
+    loadChildren: () =>
+      import('./pages/proacademy/about.module').then((mod) => mod.AboutModule),
+  },
 ];
 
 @NgModule({
