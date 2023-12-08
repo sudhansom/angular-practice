@@ -130,6 +130,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/proacademy/about.module').then((mod) => mod.AboutModule),
   },
+  {
+    path: 'change-detection',
+    loadChildren: () =>
+      import('./pages/change-detection/home/home.module').then(
+        (mod) => mod.HomeModule
+      ),
+  },
 ];
 
 @NgModule({

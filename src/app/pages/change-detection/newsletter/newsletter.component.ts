@@ -1,14 +1,25 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import { User } from '../type';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'newsletter',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <fieldset class="newsletter">
       <legend>Newsletter</legend>
 
-      <h5>Hello {{ user?.firstName }}, enter your email below to subscribe:</h5>
+      <h5>
+        Hello {{ (user$ | async).firstName }}, enter your email below to
+        subscribe:
+      </h5>
       <form>
         <input
           #email
@@ -29,7 +40,7 @@ import { User } from '../type';
 })
 export class NewsletterComponent {
   @Input()
-  user: User;
+  user$: Observable<User>;
 
   @Output()
   subscribe = new EventEmitter();
