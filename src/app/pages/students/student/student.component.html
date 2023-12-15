@@ -2,6 +2,6 @@
   <p>{{student.id}}</p>
   <p (click)="displayDetail(student)" class="name">{{student.name}}</p>
   <p>{{student.username}}</p>
-  <span (click)="deleteItem()">X</span>
+  <span (click)="deleteItem(student.id)">X</span>
 </div>
 

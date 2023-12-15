@@ -10,6 +10,10 @@
     }
     span {
       cursor:pointer;
+      color: red;
+      &:hover{
+        filter:brightness(.8);
+      }
     }
   }
 }

@@ -14,10 +14,9 @@ export class StudentComponent {
 dataService = inject(StudentService);
 
 displayDetail(student: Student){
-console.log(student);
+  this.dataService.selectStudent(student);
 }
-deleteItem(){
-  console.log('deleteall')
-this.dataService.students = [];
+deleteItem(id: number){
+this.dataService.deleteStudent(id);
 }
 }
