@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { Student } from '../models/student';
+import { StudentService } from '../services/student.service';
 
 
 @Component({
@@ -8,5 +10,14 @@ import { Component } from '@angular/core';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StudentComponent {
+@Input() student: Student;
+dataService = inject(StudentService);
 
+displayDetail(student: Student){
+console.log(student);
+}
+deleteItem(){
+  console.log('deleteall')
+this.dataService.students = [];
+}
 }

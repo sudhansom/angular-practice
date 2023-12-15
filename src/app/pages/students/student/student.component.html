@@ -1,1 +1,7 @@
-<h1>Student each</h1>
+<div class="container">
+  <p>{{student.id}}</p>
+  <p (click)="displayDetail(student)" class="name">{{student.name}}</p>
+  <p>{{student.username}}</p>
+  <span (click)="deleteItem()">X</span>
+</div>
+
