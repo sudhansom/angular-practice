@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss'],
+  selector: 'app-student',
+  templateUrl: './student.component.html',
+  styleUrls: ['./student.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent {
+export class StudentComponent {
 
 }
