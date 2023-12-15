@@ -137,6 +137,10 @@ const routes: Routes = [
         (mod) => mod.HomeModule
       ),
   },
+  {
+    path: 'students',
+    loadChildren: () => import('./pages/students/about.module').then(mod => mod.AboutModule)
+  }
 ];
 
 @NgModule({
