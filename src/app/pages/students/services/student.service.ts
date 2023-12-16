@@ -1,6 +1,7 @@
 import { EventEmitter, Injectable } from "@angular/core";
 
 import { Student } from "../models/student";
+import { Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root',
@@ -21,5 +22,8 @@ selectStudent(student: Student){
 deleteStudent(id: number){
   this.students = this.students.filter(student => student.id !== id);
   console.log(this.students.length);
+}
+getAllStudents(): Observable<Student[]>{
+  return of(this.students);
 }
 }

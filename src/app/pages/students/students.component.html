@@ -3,7 +3,7 @@
   <hr>
   <app-create-student></app-create-student>
   <hr>
-  <app-student *ngFor="let student of allStudents" [student]="student"></app-student>
+  <app-student *ngFor="let student of allStudents$ | async" [student]="student"></app-student>
   <hr>
   <app-student-detail></app-student-detail>
 </div>

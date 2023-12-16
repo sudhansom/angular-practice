@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Student } from './models/student';
 import { StudentService } from './services/student.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -9,8 +10,11 @@ import { StudentService } from './services/student.service';
   styleUrls: ['./students.component.scss'],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StudentsComponent {
+export class StudentsComponent implements OnInit {
   dataService = inject(StudentService);
-  allStudents: Student[] = this.dataService.students;
+  allStudents$: Observable<Student[]>;
 
+  ngOnInit(): void {
+      this.allStudents$ = this.dataService.getAllStudents();
+  }
 }
