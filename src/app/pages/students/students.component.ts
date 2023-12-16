@@ -15,6 +15,12 @@ export class StudentsComponent implements OnInit {
   allStudents$: Observable<Student[]>;
 
   ngOnInit(): void {
-      this.allStudents$ = this.dataService.getAllStudents();
+    this.fetchData();
+  }
+  deleteStudent(){
+    this.fetchData();
+  }
+  fetchData(){
+    this.allStudents$ = this.dataService.getAllStudents();
   }
 }

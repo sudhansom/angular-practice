@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, EventEmitter, Output } from '@angular/core';
 import { Student } from '../models/student';
 import { StudentService } from '../services/student.service';
 
@@ -11,6 +11,7 @@ import { StudentService } from '../services/student.service';
 })
 export class StudentComponent {
 @Input() student: Student;
+@Output() onDelete = new EventEmitter();
 dataService = inject(StudentService);
 
 displayDetail(student: Student){
@@ -18,5 +19,6 @@ displayDetail(student: Student){
 }
 deleteItem(id: number){
 this.dataService.deleteStudent(id);
+this.onDelete.emit();
 }
 }
