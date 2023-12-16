@@ -1,0 +1,25 @@
+:host {
+  .container {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    label {
+      display: flex;
+      flex-direction: column;
+      input {
+        width: 100%;
+        border-radius: 6px;
+      }
+    }
+    button {
+      border: 6px;
+      cursor: pointer;
+      transition: all .4s ease-in-out;
+      &:hover {
+        background-color: gray;
+      }
+    }
+    }
+  }
+}

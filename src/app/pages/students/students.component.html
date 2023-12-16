@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Students </h1>
   <hr>
-  <app-create-student></app-create-student>
+  <app-create-student (onCreate)="fetchData()"></app-create-student>
   <hr>
   <app-student *ngFor="let student of allStudents$ | async" [student]="student" (onDelete)="deleteStudent()"></app-student>
   <hr>
