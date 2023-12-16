@@ -4,6 +4,9 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      border: 1px solid gray;
+      border-radius: 12px;
+      padding: 12px;
     label {
       display: flex;
       flex-direction: column;
@@ -14,10 +17,12 @@
     }
     button {
       border: 6px;
+      border-radius: 6px;
       cursor: pointer;
       transition: all .4s ease-in-out;
       &:hover {
         background-color: gray;
+        color: #fff;
       }
     }
     }

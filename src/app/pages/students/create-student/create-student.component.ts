@@ -14,8 +14,8 @@ export class CreateStudentComponent {
   @Output() onCreate = new EventEmitter();
   dataService = inject(StudentService);
   submitForm(form: any){
-    console.log(form.value);
     this.dataService.students.push(new Student(form.value.id, form.value.name, form.value.userName, form.value.password));
+    form.reset();
     this.onCreate.emit();
   }
 }
