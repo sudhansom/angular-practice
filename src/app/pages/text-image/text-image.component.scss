@@ -1,0 +1,20 @@
+:host {
+ .wrapper {
+  max-width: 1000px;
+  border: 1px solid gray;
+  margin: auto;
+  background-color: rgb(211, 207, 207);
+  .container {
+    position: relative;
+    z-index: 5;
+    padding: 50px 100px;
+  }
+ }
+ .image {
+  margin-top: -200px;
+  img {
+    width: 100%;
+  }
+}
+
+}
