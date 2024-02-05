@@ -61,7 +61,7 @@ export class CarousalComponent {
 
   handlePrev() {
     if (
-      this.currentIndex$.getValue() > 0 &&
+      this.currentIndex$.value > 0 &&
       this.currentIndex$.getValue() <= this.noOfSlides$.getValue()
     ) {
       this.currentIndex$.next(this.currentIndex$.getValue() - 1);
