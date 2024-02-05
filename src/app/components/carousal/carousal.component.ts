@@ -15,9 +15,10 @@ export class CarousalComponent {
     '../../../assets/all-access-01.jpg',
     '../../../assets/all-access-02.jpg',
     '../../../assets/all-access-03.jpg',
+    '../../../assets/all-access-01.jpg',
   ];
   currentIndex$ = new BehaviorSubject(0);
-  noOfSlides$ = new BehaviorSubject(6);
+  noOfSlides$ = new BehaviorSubject(7);
   // showPrev$ = new BehaviorSubject(false);
   // showNext$ = new BehaviorSubject(true);
 
