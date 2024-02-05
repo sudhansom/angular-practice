@@ -114,6 +114,10 @@ const routes: Routes = [
       import('./pages/animations/about.module').then((mod) => mod.AboutModule),
   },
   {
+    path:'text-image',
+    loadChildren: ()=>import('./pages/text-image/text-image.module').then((mod)=>mod.TextImageModule),
+  },
+  {
     path: 'reactive-form',
     loadChildren: () =>
       import('./pages/reactive-form/about.module').then(
