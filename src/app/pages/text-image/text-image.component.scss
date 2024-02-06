@@ -23,6 +23,8 @@
   display: flex;
   border: 1px solid gray;
   border-radius: 12px;
+  overflow: hidden;
+
   &__content {
     width: 55%;
     padding: 100px 24px 100px;
@@ -33,9 +35,11 @@
   }
   &__image {
     width: 45%;
-    overflow: hidden;
-    background-image: url('../../../assets/crosent.png');
-    //background-image:linear-gradient(270deg, gray 0%, black 100%);
+
+    background-image: url('../../../assets/crosent.png'), linear-gradient(270deg, gray 0%, black 100%);
+    background-size: cover;
+
+    //background-image: var(--background-image), linear-gradient(270deg, gray 0%, black 100%);
   }
 }
 

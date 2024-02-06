@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./text-image.component.scss']
 })
 export class TextImageComponent {
+  image = '../../../assets/crosent.png';
 }
