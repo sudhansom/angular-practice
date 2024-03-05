@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { NavbarModule } from 'src/app/components/navbar/navbar.module';
 import { IntervalComponent } from './interval.component';
@@ -16,8 +16,13 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [IntervalComponent],
-  imports: [CommonModule, NavbarModule, MatIconModule],
-  exports: [IntervalComponent],
+  imports: [
+    CommonModule,
+    NavbarModule,
+    MatIconModule,
+    RouterModule.forChild(appRoutes),
+  ],
+  exports: [],
   providers: [],
   bootstrap: [],
 })
