@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IntervalComponent } from './pages/interval/interval.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, IntervalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

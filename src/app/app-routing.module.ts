@@ -114,8 +114,11 @@ const routes: Routes = [
       import('./pages/animations/about.module').then((mod) => mod.AboutModule),
   },
   {
-    path:'text-image',
-    loadChildren: ()=>import('./pages/text-image/text-image.module').then((mod)=>mod.TextImageModule),
+    path: 'text-image',
+    loadChildren: () =>
+      import('./pages/text-image/text-image.module').then(
+        (mod) => mod.TextImageModule
+      ),
   },
   {
     path: 'reactive-form',
@@ -143,8 +146,18 @@ const routes: Routes = [
   },
   {
     path: 'students',
-    loadChildren: () => import('./pages/students/students.module').then(mod => mod.StudentsModule)
-  }
+    loadChildren: () =>
+      import('./pages/students/students.module').then(
+        (mod) => mod.StudentsModule
+      ),
+  },
+  {
+    path: 'interval',
+    loadChildren: () =>
+      import('./pages/interval/interval.module').then(
+        (mod) => mod.IntervalModule
+      ),
+  },
 ];
 
 @NgModule({
