@@ -1,5 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { interval } from 'rxjs';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  OnDestroy,
+} from '@angular/core';
+import { Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-interval',
@@ -7,13 +12,18 @@ import { interval } from 'rxjs';
   styleUrls: ['./interval.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IntervalComponent implements OnInit {
+export class IntervalComponent implements OnInit, OnDestroy {
   myInterval$ = interval(2000);
   val = 0;
+  intervalSubs: Subscription;
 
   ngOnInit(): void {
-    this.myInterval$.subscribe((value) => {
+    this.intervalSubs = this.myInterval$.subscribe((value) => {
       this.val = value;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.intervalSubs.unsubscribe();
   }
 }
