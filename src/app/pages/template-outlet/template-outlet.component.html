@@ -1,9 +1,28 @@
 <p>template-outlet works!</p>
 
-<ng-template #outlet>
+<ng-template #outlet let-message let-name="name">
   <p>This is the outlet part.</p>
+  <p>name: {{ name }}</p>
+  <p>message: {{ message }}</p>
 </ng-template>
 <hr />
-<ng-container *ngTemplateOutlet="outlet"></ng-container>
-<ng-container *ngTemplateOutlet="outlet"></ng-container>
-<ng-container *ngTemplateOutlet="outlet"></ng-container>
+<ng-container
+  *ngTemplateOutlet="
+    outlet;
+    context: { $implicit: 'just a message', name: 'sudhan' }
+  "
+></ng-container>
+<hr />
+<ng-container
+  *ngTemplateOutlet="
+    outlet;
+    context: { $implicit: 'just a message', name: 'Biren' }
+  "
+></ng-container>
+<hr />
+<ng-container
+  *ngTemplateOutlet="
+    outlet;
+    context: { $implicit: 'just a message', name: 'Resham' }
+  "
+></ng-container>
