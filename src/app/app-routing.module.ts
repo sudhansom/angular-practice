@@ -158,6 +158,13 @@ const routes: Routes = [
         (mod) => mod.IntervalModule
       ),
   },
+  {
+    path: 'template-outlet',
+    loadChildren: () =>
+      import('./pages/template-outlet/template-outlet.module').then(
+        (mod) => mod.TemplateOutletModule
+      ),
+  },
 ];
 
 @NgModule({
