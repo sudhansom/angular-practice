@@ -1,1 +1,9 @@
 <p>template-outlet works!</p>
+
+<ng-template #outlet>
+  <p>This is the outlet part.</p>
+</ng-template>
+<hr />
+<ng-container *ngTemplateOutlet="outlet"></ng-container>
+<ng-container *ngTemplateOutlet="outlet"></ng-container>
+<ng-container *ngTemplateOutlet="outlet"></ng-container>
