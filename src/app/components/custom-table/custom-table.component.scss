@@ -1,0 +1,13 @@
+::ng-deep table {
+  width: 100%;
+  th {
+    background-color: lightcoral;
+    color: #fff;
+  }
+
+  th,
+  td {
+    border: 1px solid gray;
+    padding: 3px 12px;
+  }
+}

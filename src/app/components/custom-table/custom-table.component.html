@@ -1,1 +1,11 @@
-<p>custom-table works!</p>
+<table>
+  <thead>
+    <th *ngFor="let item of data[0] | keyvalue">{{ item.key }}</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{ item.name }}</td>
+      <td>{{ item.age }}</td>
+    </tr>
+  </tbody>
+</table>
