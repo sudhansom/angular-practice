@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomTableComponent } from './components/custom-table/custom-table.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CustomTableComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
