@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-custom-table',
@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CustomTableComponent {
   @Input() data = [];
+  @ContentChild('header') header: TemplateRef<any>;
 }
