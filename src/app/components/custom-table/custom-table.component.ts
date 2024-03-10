@@ -8,4 +8,5 @@ import { Component, ContentChild, Input, TemplateRef } from '@angular/core';
 export class CustomTableComponent {
   @Input() data = [];
   @ContentChild('header') header: TemplateRef<any>;
+  @ContentChild('body') body: TemplateRef<any>;
 }
