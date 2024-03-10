@@ -2,10 +2,21 @@
   <ng-container
     *ngTemplateOutlet="header || headerDefault; context: { $implicit: data }"
   ></ng-container>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <ng-container
+        *ngTemplateOutlet="body; context: { $implicit: row }"
+      ></ng-container>
+    </tr>
+  </tbody>
 </table>
 
 <ng-template #headerDefault>
   <thead>
     <th *ngFor="let item of data[0] | keyvalue">{{ item.key }}</th>
   </thead>
+</ng-template>
+
+<ng-template #body let-row>
+  <td *ngFor="let item of row | keyvalue">{{ item.value }}</td>
 </ng-template>
