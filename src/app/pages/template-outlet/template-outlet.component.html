@@ -32,6 +32,11 @@
     <tr>
       <th>Age</th>
       <th>Name</th>
+      <th>Action</th>
     </tr>
+  </ng-template>
+  <ng-template #body let-row>
+    <td *ngFor="let item of row | keyvalue">{{ item.value }}</td>
+    <td><button>Delete</button></td>
   </ng-template>
 </app-custom-table>

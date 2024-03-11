@@ -7,7 +7,7 @@
   <tbody>
     <tr *ngFor="let row of data">
       <ng-container
-        *ngTemplateOutlet="defaultBody; context: { $implicit: row }"
+        *ngTemplateOutlet="body || defaultBody; context: { $implicit: row }"
       ></ng-container>
     </tr>
   </tbody>
