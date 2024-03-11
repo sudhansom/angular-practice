@@ -6,7 +6,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
-      <td *ngFor="let item of row | keyvalue">{{ item.value }}</td>
+      <ng-container
+        *ngTemplateOutlet="defaultBody; context: { $implicit: row }"
+      ></ng-container>
     </tr>
   </tbody>
 </table>
@@ -15,4 +17,8 @@
   <tr>
     <th *ngFor="let heading of data[0] | keyvalue">{{ heading.key }}</th>
   </tr>
+</ng-template>
+
+<ng-template #defaultBody let-row>
+  <td *ngFor="let item of row | keyvalue">{{ item.value }}</td>
 </ng-template>
