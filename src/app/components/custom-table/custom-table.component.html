@@ -1,8 +1,8 @@
 <table>
   <thead>
-    <tr>
-      <th *ngFor="let heading of data[0] | keyvalue">{{ heading.key }}</th>
-    </tr>
+    <ng-container
+      *ngTemplateOutlet="defaultHeader; context: { $implicit: data }"
+    ></ng-container>
   </thead>
   <tbody>
     <tr *ngFor="let row of data">
@@ -10,3 +10,9 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #defaultHeader let-data>
+  <tr>
+    <th *ngFor="let heading of data[0] | keyvalue">{{ heading.key }}</th>
+  </tr>
+</ng-template>
