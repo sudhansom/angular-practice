@@ -27,3 +27,11 @@
   "
 ></ng-container>
 <app-custom-table [data]="employees"></app-custom-table>
+<app-custom-table [data]="employees">
+  <ng-template #header>
+    <tr>
+      <th>Age</th>
+      <th>Name</th>
+    </tr>
+  </ng-template>
+</app-custom-table>

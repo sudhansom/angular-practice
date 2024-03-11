@@ -1,7 +1,7 @@
 <table>
   <thead>
     <ng-container
-      *ngTemplateOutlet="defaultHeader; context: { $implicit: data }"
+      *ngTemplateOutlet="header || defaultHeader; context: { $implicit: data }"
     ></ng-container>
   </thead>
   <tbody>
