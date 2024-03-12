@@ -4,4 +4,15 @@
   gap: 12px;
   max-width: 700px;
   margin: 24px auto;
+  a {
+    cursor: pointer;
+    color: rgb(133, 54, 54);
+    text-decoration: none;
+  }
+  a:hover {
+    color: rgb(209, 103, 103);
+  }
+  a:visited {
+    color: purple;
+  }
 }
