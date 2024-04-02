@@ -1,8 +1,12 @@
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
+interface ICustomValidator {
+  invalidPersonName : boolean
+}
+
 export class CustomValidators {
-  static invalidPersonName(control: FormControl): {[nameOfValidator: string]: boolean} {
+  static invalidPersonName(control: FormControl): ICustomValidator {
     if(control.value === 'admin'){
       return {'invalidPersonName': true}
     }
